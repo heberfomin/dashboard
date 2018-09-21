@@ -1,0 +1,7 @@
+{
+    "/embarques/api/auth/login": {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

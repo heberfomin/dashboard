@@ -5,8 +5,7 @@ import { LoginComponent } from "./auth/login/login.component";
 import { PanelComponent } from "./panel/panel.component";
 
 const APP_ROUTES: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'panel', component: PanelComponent }
+  { path: '', component: LoginComponent }
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

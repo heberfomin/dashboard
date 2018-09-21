@@ -1,5 +1,6 @@
 <!-- Uses a header that scrolls with the text, rather than staying
   locked at the top -->
+<div class="mdl-layout__container has-scrolling-header">
   <div class="mdl-layout mdl-js-layout">
     <header class="mdl-layout__header mdl-layout__header--scroll">
       <div class="mdl-layout__header-row">
@@ -25,7 +26,6 @@
         <a class="mdl-navigation__link" href=""><i class="material-icons">exit_to_app</i>Sair</a>
       </nav>
     </div>
-    <main class="mdl-layout__content">
-      <div class="page-content"><!-- Your content goes here --></div>
-    </main>
+    <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button"><i class="material-icons"></i></div>
   </div>
+</div>

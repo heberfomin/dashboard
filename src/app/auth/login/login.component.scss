@@ -1,0 +1,25 @@
+
+.mdl-layout {
+	align-items: center;
+  justify-content: center;
+}
+.mdl-layout__content {
+	padding: 24px;
+	flex: none;
+}
+.mdl-color--primary {
+    background-color: rgb(27, 90, 160)!important;
+}
+
+.imagem {
+    margin-left:  auto;
+    margin-right: 0;
+    float: right;
+    text-align: right;
+}
+
+#entrar { 
+    display: flex; 
+    margin-left:  auto;
+    margin-right: 0;   
+    justify-content: rigth; }

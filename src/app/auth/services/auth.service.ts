@@ -31,7 +31,7 @@ export class AuthService {
       this.router.navigate(['']);
     })
   }
-
+ 
   getUser(): User {
     return localStorage.getItem('user') ? JSON.parse(atob(localStorage.getItem('user'))) : null;
   }

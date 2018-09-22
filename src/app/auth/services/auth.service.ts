@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   check(): boolean {
-    return localStorage.getItem('User') ? true : false;
+    return localStorage.getItem('user') ? true : false;
   }
 
   login(credentials: {username: string, password: string}): Observable<boolean> {
@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   logout(): void {
-    this.http.get(`${environment.api_get}/auth/logout`).subscribe(resp => {
+    this.http.get(`${environment.api_url}/auth/logout`).subscribe(resp => {
       console.log(resp);
       localStorage.clear();
       this.router.navigate(['']);

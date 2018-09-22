@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.f.value).subscribe(
       (resp) => { 
-        this.router.navigate(['panel/main']); 
+        this.router.navigate(['panel']); 
       },
       (errorResponse: HttpErrorResponse) => { 
         console.log(errorResponse);

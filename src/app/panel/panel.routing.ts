@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PanelComponent } from './panel.component';
 import { PanelMainComponent } from './panel-main/panel-main.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 @NgModule({
   imports: [
@@ -10,7 +11,9 @@ import { PanelMainComponent } from './panel-main/panel-main.component';
     RouterModule.forChild([
       {
         path: 'panel',
-        component: PanelComponent,
+        component: PanelComponent, 
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
           {
             path: '',

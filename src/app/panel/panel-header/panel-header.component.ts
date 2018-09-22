@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-panel-header',
@@ -9,10 +10,14 @@ import { environment } from '../../../environments/environment';
 export class PanelHeaderComponent implements OnInit {
   title : string = environment.title;
 
-
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+  }
+
+  logout(e) {
+    e.preventDefault;
+    this.auth.logout();
   }
 
 }

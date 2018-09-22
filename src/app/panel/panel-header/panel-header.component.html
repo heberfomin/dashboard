@@ -1,36 +1,27 @@
-<!-- Uses a header that scrolls with the text, rather than staying
-  locked at the top -->
-<div class="mdl-layout__container has-scrolling-header">
-  <div class="mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--scroll">
-      <div class="mdl-layout__header-row">
-        <!-- Title -->
-        <span class="mdl-layout-title">{{title}}</span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation -->
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>npm
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="" id="usrLnk">Usuario</a>
-          <a class="mdl-navigation__link" href=""><i class="material-icons">exit_to_app</i></a>
-        </nav>
-        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="usrLnk">
-          <li class="mdl-menu__item">About</li>
-          <li class="mdl-menu__item">Contact</li>
-          <li class="mdl-menu__item">Legal information</li>
-        </ul>
-      </div>
-    </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">{{title}}</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href=""><i class="material-icons">exit_to_app</i>Sair</a>
-      </nav>
-    </div>
-    <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button"><i class="material-icons"></i></div>
+<!-- Uses a header that scrolls with the text, rather than staying locked at the top -->
+<header class="mdl-layout__header mdl-layout__header--scroll">
+  <div class="mdl-layout__header-row">
+    <!-- Title -->
+    <span class="mdl-layout-title">{{title}}</span>
+    <!-- Add spacer, to align navigation to the right -->
+    <div class="mdl-layout-spacer"></div>
+    <!-- Navigation -->
+    <span >{{auth.getUser().name}}</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+    <!-- Right aligned menu below button -->
+    <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">more_vert</i>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+      <li class="mdl-menu__item">Some Action</li>
+      <li class="mdl-menu__item">Another Action</li>
+      <li disabled class="mdl-menu__item">Disabled Action</li>
+      <li class="mdl-menu__item" (click)="logout($event)"><i class="material-icons">exit_to_app</i></li>
+    </ul>
   </div>
-</div>
+</header>
+

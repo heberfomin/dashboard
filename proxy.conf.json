@@ -3,5 +3,11 @@
         "target": "https://ec2.gruposol.com.br",
         "secure": false,
         "changeOrigin": true
+    },
+    "/embarques/api/auth/logout": {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
     }
+
 }

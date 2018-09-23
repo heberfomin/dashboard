@@ -1,8 +1,28 @@
-<mdl-layout #mdlLayout1="mdlLayout">  
+<mdl-layout #mdlLayout1="mdlLayout">
     <mdl-layout-header>
-        <app-panel-header></app-panel-header>
+        <mdl-layout-header-row>
+            <mdl-layout-title>{{titulo}}</mdl-layout-title>
+            <mdl-layout-spacer></mdl-layout-spacer>
+            <span>{{auth.getUser().name}}</span>
+            <nav class="mdl-navigation">
+            </nav>
+            <button mdl-button #btn2="mdlButton" (click)="m2.toggle($event, btn2)" mdl-button-type="icon" mdl-ripple><mdl-icon>more_vert</mdl-icon></button>
+            <mdl-menu #m2="mdlMenu" mdl-menu-position="bottom-right">
+                <a (click)="logout($event)"><i class="material-icons">exit_to_app</i><span>Logout</span></a>
+            </mdl-menu> 
+                </mdl-layout-header-row>
     </mdl-layout-header>
-    <app-panel-drawer></app-panel-drawer>
-    <router-outlet></router-outlet>
-
+    <mdl-layout-drawer>
+        <mdl-layout-title>{{titulo}}</mdl-layout-title>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" [routerLink]="['./carregamentos']" (click)="mdlLayout1.closeDrawer()">Carregamentos</a>
+            <a class="mdl-navigation__link" [routerLink]="['./viagens']" (click)="mdlLayout1.closeDrawer()">Viagens</a>
+            <a class="mdl-navigation__link" [routerLink]="['./fluxo']" (click)="mdlLayout1.closeDrawer()">Fluxo</a>
+            <a class="mdl-navigation__link" [routerLink]="['./main']" (click)="mdlLayout1.closeDrawer()">Fluxo</a>
+            <a></a>
+        </nav>
+    </mdl-layout-drawer>   
+    <mdl-layout-content>
+        <router-outlet></router-outlet>
+    </mdl-layout-content>
 </mdl-layout>

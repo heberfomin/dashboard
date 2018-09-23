@@ -10,6 +10,7 @@ import { PanelModule } from './panel/panel.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { PanelRoutingModule } from './panel/panel.routing';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,12 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     AuthModule,
     routing,
     PanelModule,
+    PanelRoutingModule,
     BrowserAnimationsModule
+  ],
+  exports: [
+    AuthModule,
+    PanelRoutingModule
   ],
   providers: [ 
     AuthGuard, 

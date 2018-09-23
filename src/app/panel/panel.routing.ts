@@ -4,6 +4,9 @@ import { RouterModule } from '@angular/router';
 import { PanelComponent } from './panel.component';
 import { PanelMainComponent } from './panel-main/panel-main.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
+import { PanelViagensComponent } from './panel-viagens/panel-viagens.component';
+import { PanelFluxoComponent } from './panel-fluxo/panel-fluxo.component';
+import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carregamentos.component';
 
 @NgModule({
   imports: [
@@ -11,19 +14,13 @@ import { AuthGuard } from '../auth/guards/auth.guard';
     RouterModule.forChild([
       {
         path: 'panel',
-        component: PanelComponent, 
-        canActivate: [AuthGuard],
-        canActivateChild: [AuthGuard],
+        component: PanelComponent, canActivate: [ AuthGuard ], canActivateChild: [ AuthGuard ],
         children: [
-          {
-            path: '',
-            redirectTo: 'main',
-            pathMatch: 'full'
-          },
-          {
-            path: 'main',
-            component: PanelMainComponent
-          },
+          { path: '', redirectTo: 'main', pathMatch: 'full' },
+          { path: 'main', component: PanelMainComponent },
+          { path: 'viagens', component: PanelViagensComponent },
+          { path: 'fluxo', component: PanelFluxoComponent },
+          { path: 'carregamentos', component: PanelCarregamentosComponent },
         ]
       }
     ])

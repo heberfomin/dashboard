@@ -4,14 +4,11 @@ import { MdlModule } from '@angular-mdl/core';
 
 import { PanelRoutingModule } from './panel.routing';
 import { PanelComponent } from './panel.component';
-import { PanelHeaderComponent } from './panel-header/panel-header.component';
 import { PanelMainComponent } from './panel-main/panel-main.component';
-import { PanelFooterComponent } from './panel-footer/panel-footer.component';
 import { PanelSaldosComponent } from './panel-saldos/panel-saldos.component';
 import { PanelViagensComponent } from './panel-viagens/panel-viagens.component';
 import { PanelFluxoComponent } from './panel-fluxo/panel-fluxo.component';
-import { PanelDrawerComponent } from './panel-drawer/panel-drawer.component';
-
+import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carregamentos.component';
 
 @NgModule({
   imports: [
@@ -21,14 +18,12 @@ import { PanelDrawerComponent } from './panel-drawer/panel-drawer.component';
   ],
   declarations: [
     PanelComponent,
-    PanelHeaderComponent, 
     PanelMainComponent,
-    PanelFooterComponent,
     PanelSaldosComponent,
     PanelViagensComponent,
     PanelFluxoComponent,
-    PanelDrawerComponent
-  ],
+    PanelCarregamentosComponent
+    ],
   exports: [
     PanelComponent
   ]

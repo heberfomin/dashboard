@@ -8,15 +8,12 @@ import { routing } from './app.routing';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { PanelModule } from './panel/panel.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatSidenavModule,MatCardModule } from '@angular/material';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { PanelSaldosComponent } from './panal/panel-saldos/panel-saldos.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PanelSaldosComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

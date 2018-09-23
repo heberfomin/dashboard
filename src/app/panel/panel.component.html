@@ -1,7 +1,8 @@
-<div class="mdl-layout mdl-js-layout">
-    <app-panel-header></app-panel-header>
-    
+<mdl-layout #mdlLayout1="mdlLayout">  
+    <mdl-layout-header>
+        <app-panel-header></app-panel-header>
+    </mdl-layout-header>
+    <app-panel-drawer></app-panel-drawer>
     <router-outlet></router-outlet>
-    
-    <app-panel-footer></app-panel-footer>
-</div>
+
+</mdl-layout>

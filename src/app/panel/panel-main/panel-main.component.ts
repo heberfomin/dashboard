@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
+import { SaldoData } from '../../interfaces/saldos.model';
 
 @Component({
   selector: 'app-panel-main',
@@ -7,7 +8,7 @@ import { AuthService } from '../../auth/services/auth.service';
   styleUrls: ['./panel-main.component.css']
 })
 export class PanelMainComponent implements OnInit {
-  imagem: string;
+  private saldos : SaldoData[] = [];
 
   constructor(private service: AuthService) { }
 
@@ -16,11 +17,18 @@ export class PanelMainComponent implements OnInit {
   }
 
   getTanks() {
-    console.log(this.service.getSaldos().subscribe(resp => {
-      console.log(resp)  
+    console.log(this.service.getSaldos().subscribe(resp => { 
+      this.parseData(resp.balance);
       }
     ));
-    this.imagem = 'assets/img/tank_040.svg';
+
+  }
+  parseData(jsonData) {
+    for (let i = 0; i < jsonData.length; i++) {
+      const data = new SaldoData(jsonData[i].numTanque,jsonData[i].codProduto,jsonData[i].numCapacidade,jsonData[i].numQuantidadeAtual,jsonData[i].numTotal);
+      this.saldos.push(data);
+    }
+    console.log(this.saldos);
   }
 
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { User } from '../../interfaces/user.model';
 
@@ -45,4 +46,8 @@ export class AuthService {
       return false;
     })
   }
+
+  getSaldos():any {
+    return this.http.get<any>(`${environment.api_url}/getSaldoTanques`);
+  }  
 }

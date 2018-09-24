@@ -8,6 +8,11 @@
         "target": "https://ec2.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
+    },
+    "/embarques/api/getSaldoTanques": {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
     }
 
 }

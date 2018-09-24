@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdlModule } from '@angular-mdl/core';
+import { HttpModule } from '@angular/http';
 
 import { PanelRoutingModule } from './panel.routing';
 import { PanelComponent } from './panel.component';
@@ -14,6 +15,7 @@ import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carrega
   imports: [
     CommonModule,
     PanelRoutingModule,
+    HttpModule,
     MdlModule
   ],
   declarations: [
@@ -24,6 +26,8 @@ import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carrega
     PanelFluxoComponent,
     PanelCarregamentosComponent
     ],
+  providers: [ 
+  ],
   exports: [
     PanelComponent
   ]

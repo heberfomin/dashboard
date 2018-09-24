@@ -1,0 +1,11 @@
+.tit-tank {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.tank {
+    display: block;
+    margin-top: -20px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -13,6 +13,11 @@
         "target": "https://ec2.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
+    },
+    "/embarques/api/getSaldoVeiculos": {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
     }
 
 }

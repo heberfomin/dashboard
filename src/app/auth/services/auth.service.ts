@@ -50,4 +50,9 @@ export class AuthService {
   getSaldos():any {
     return this.http.get<any>(`${environment.api_url}/getSaldoTanques`);
   }  
+
+  getSaldoVeiculos():any {  
+    return this.http.get<any>(`${environment.api_url}/getSaldoVeiculos`);
+  }  
+
 }

@@ -10,17 +10,17 @@
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" [ngClass]="{'has-success': f.controls['username'].valid,
 					'has-error': f.controls['username'].invalid && (f.controls['username'].touched || f.controls['username'].dirty)}">
 						<input class="mdl-textfield__input" type="text" id="username" (input)="onUsernameInput($event)" formControlName="username">
-						<span *ngIf="f.controls['username'].valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+						<span *ngIf="f.controls['username'].valid" aria-hidden="true"><i class="material-icons">done</i></span>
               <span *ngIf="f.controls['username'].invalid && (f.controls['username'].touched || f.controls['username'].dirty)">
-              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-              <span class="text-danger">Usuário inválido.</span>
+              <span class="mdl-textfield__error" aria-hidden="true"><i class="material-icons">clear</i></span>
+              <span class="card-panel red lighten-4 red-text text-darken-4">Usuário inválido.</span>
             </span>
             <label class="mdl-textfield__label" for="username">Usuário:</label>
           </div>            
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" [ngClass]="{'has-success': f.controls['password'].valid,
 					'has-error': f.controls['password'].invalid && (f.controls['password'].touched || f.controls['password'].dirty)}">
 						<input class="mdl-textfield__input" type="password" formControlName="password" id="password" (input)="onPasswordInput($event)" />
-						<span class="text-danger" *ngIf="f.controls['password'].invalid && (f.controls['password'].touched || f.controls['password'].dirty)">Campo obrigatório.</span>
+						<span class="card-panel red lighten-4 red-text text-darken-4" *ngIf="f.controls['password'].invalid && (f.controls['password'].touched || f.controls['password'].dirty)">Campo obrigatório.</span>
 						<label class="mdl-textfield__label" for="password">Senha:</label>
 					</div>
 				</form>
@@ -31,7 +31,7 @@
           <i class="material-icons">send</i>
         </button>
 			</div>
-			<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="errorCredentials">
+			<div class="mdl-textfield__error" role="alert" *ngIf="errorCredentials">
 				<strong>Credenciais Inválidas!</strong><br>Verifique as informações fornecidas.
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>

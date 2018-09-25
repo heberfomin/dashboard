@@ -35,15 +35,20 @@ export class PanelMainComponent implements OnInit {
 
   getSaldoVeiculos() {
     return(this.service.getSaldoVeiculos().subscribe(resp => { 
-      this.parseDataVeiculos(resp.trucks);
+      this.parseDataVeiculos(resp);
+      //console.log(resp);
     }));
   }
 
   parseDataVeiculos(jsonData) {
     for (let i = 0; i < jsonData.length; i++) {
-      const data = new SaldoVeiculoData(jsonData[i].codPlaca,jsonData[i].indMultCompart,jsonData[i].indTamanho,jsonData[i].numCapacidadeL,jsonData[i].numCapacidadeM3,jsonData[i].numCompart,jsonData[i].numVolCompart1,jsonData[i].numVolCompart2,jsonData[i].numVolCompart3);
+      const data = new SaldoVeiculoData(jsonData[i].codPlaca,jsonData[i].indMultCompart,jsonData[i].indTamanho,
+        jsonData[i].numCapacidadeL,jsonData[i].numCapacidadeM3,jsonData[i].numCompart,jsonData[i].numVolCompart1,
+        jsonData[i].numVolCompart2,jsonData[i].numVolCompart3,jsonData[i].numOcupado, jsonData[i].percentage, 
+        jsonData[i].saldos);
       this.saldosVeiculos.push(data);
     }
+    console.log(this.saldosVeiculos);
   }
 
 

@@ -1,15 +1,20 @@
-<div class="mdl-grid">
+<div class="mdl-grid tanks">
     <div *ngFor="let saldo of saldos; let i = index" class="mdl-cell mdl-cell--4-col">
-            <h5 class="text-tank">Tanque {{saldo.numTanque}}</h5>
-            <h6 class="text-tank">{{saldo.codProduto}}</h6>
-            <p class="text-tank">Capacidade: {{saldo.numCapacidade | number}}</p>
-            <img class="tank" src="assets/img/tank_{{saldo.image}}.svg" alt="tanque" width="250" height="150">
-            <p class="text-tank">Saldo Atual: {{saldo.numTotal | number}}</p>
+        <h5 class="text-tank">Tanque {{saldo.numTanque}}</h5>
+        <h6 class="text-tank">{{saldo.codProduto}}</h6>
+        <p class="text-tank">Capacidade: {{saldo.numCapacidade | number}}l</p>
+        <img class="tank" src="assets/img/tank_{{saldo.image}}.svg" alt="tanque" width="250" height="150">
+        <p class="text-tank">Saldo Atual: {{saldo.numTotal | number}}</p>
     </div>
-    <div *ngFor="let veiculo of saldosVeiculos; let i = index" class="mdl-cell mdl-cell--3-col">
+</div>
+<div class="mdl-grid vehicles">
+    <div *ngFor="let veiculo of saldosVeiculos; let i = index" 
+    class="mdl-cell mdl-cell--3-col" [class.boxed]="!veiculo.vazio" [class.error]="veiculo.numOcupado > veiculo.numCapacidadeL">
         <h6 class="text-tank">{{veiculo.codPlaca}}</h6>
-        <p class="text-vehicle">Capacidade: {{veiculo.numCapacidadeL | number}}</p>
+        <p class="text-vehicle">Capacidade: {{veiculo.numCapacidadeL | number}}l</p>
         <p class="text-vehicle">Multiplos Compartimentos: {{veiculo.multi}}</p>
         <img class="vehicle" src="{{veiculo.image}}" alt="tanque" width="150" height="75">
+        <p class="text-vehicle"><span *ngFor="let saldo of veiculo.saldos; let i = index">
+            <strong>{{saldo.codProduto}}: </strong>{{saldo.numSaldo|number}} l&nbsp;&nbsp;</span></p>
     </div>
 </div>

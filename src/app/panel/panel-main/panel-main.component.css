@@ -22,3 +22,20 @@
     margin-left: auto;
     margin-right: auto;
 }
+.vehicles {
+    background-color: rgba(199, 199, 199, 0.4);
+}
+.tanks {
+    background-color:rgba(183, 173, 173, 0.14);;
+}
+.boxed {
+    border-style: solid;
+    border-width: 0.1px;
+    border-color: cornflowerblue;
+    padding-bottom: 3px;
+    background-color: rgba(199, 199, 199, 0.6);
+}
+.error {
+    background-color: rgba(241, 77, 77, 0.3);
+    color: darkred;
+}

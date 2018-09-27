@@ -44,7 +44,7 @@
     <div *ngFor="let veiculo of saldosVeiculos; let i = index" 
          class="mdl-cell mdl-cell--3-col" [class.boxed]="!veiculo.vazio" [class.error]="veiculo.numOcupado > veiculo.numCapacidadeL">
         <h6 class="text-tank placa">{{veiculo.codPlaca}}</h6>
-        <img class="vehicle" src="{{veiculo.image}}" alt="tanque" width="150" height="75">
+        <img class="vehicle" src="{{veiculo.image}}" alt="tanque" width="130" height="70">
         <table class="tabelinha" align="center">
           <thead>
             <tr class="tr-tabeliha">

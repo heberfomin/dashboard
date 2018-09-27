@@ -55,4 +55,7 @@ export class AuthService {
     return this.http.get<any>(`${environment.api_url}/getSaldoVeiculos`);
   }  
 
+  getTotaisSaldo(): any {
+    return this.http.get<any>(`${environment.api_url}/getSaldoBase`);
+  }
 }

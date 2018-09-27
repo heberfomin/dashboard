@@ -25,17 +25,66 @@
 .vehicles {
     background-color: rgba(199, 199, 199, 0.4);
 }
+
+.mdl-tabela {
+    width: 45%;
+    align-self: center;
+    margin-top: 2em;
+    margin-right: 1em;
+    padding: 1em 1em 1em 1em;
+    padding-bottom: 0;
+}
+
+.placa {
+    color: white;
+    text-align: center;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 4%;
+    border-color: rgb(53, 48, 48);
+    overflow:hidden;
+    background-color: rgb(230, 31, 31);
+    display:inline; 
+    padding: 3px 3px 3px 3px;
+}
+.placa:after, .placa:before{ content:"\D\A"; }
 .tanks {
-    background-color:rgba(183, 173, 173, 0.14);;
+    margin: 0;
+    padding: 0;
 }
 .boxed {
     border-style: solid;
     border-width: 0.1px;
     border-color: cornflowerblue;
-    padding-bottom: 3px;
+    padding: 5px 5px 5px 5px;
     background-color: rgba(199, 199, 199, 0.6);
 }
 .error {
     background-color: rgba(241, 77, 77, 0.3);
     color: darkred;
+}
+.larg-3-4 {
+    background-color:rgba(183, 173, 173, 0.14);
+    width: 75%;
+    margin-bottom: 0;
+}
+.larg-1-4 {
+    background-color:rgba(183, 173, 173, 0.14);
+    width: 25%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.tabelinha {
+    margin-right:auto; 
+    margin-left:auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+.th-tabelinha, .td-tabelinha {
+    text-align: center;
+    border: 1px solid gray;
+    width: 33,33%;
 }

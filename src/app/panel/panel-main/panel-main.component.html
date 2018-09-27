@@ -1,20 +1,68 @@
 <div class="mdl-grid tanks">
-    <div *ngFor="let saldo of saldos; let i = index" class="mdl-cell mdl-cell--4-col">
-        <h5 class="text-tank">Tanque {{saldo.numTanque}}</h5>
-        <h6 class="text-tank">{{saldo.codProduto}}</h6>
-        <p class="text-tank">Capacidade: {{saldo.numCapacidade | number}}l</p>
-        <img class="tank" src="assets/img/tank_{{saldo.image}}.svg" alt="tanque" width="250" height="150">
-        <p class="text-tank">Saldo Atual: {{saldo.numTotal | number}}</p>
+<mdl-card class="demo-card-image larg-3-4" mdl-shadow="0">
+    <div class="mdl-grid tanks">
+        <div class="mdl-cell mdl-cell--4-col" *ngFor="let saldo of saldos; let i = index">
+            <h5 class="text-tank">Tanque {{saldo.numTanque}}</h5>
+            <img class="tank" src="assets/img/tank_{{saldo.image}}.svg" alt="tanque" width="250" height="140">
+            <table class="tabelinha" align="center">
+                <thead>
+                  <tr class="tr-tabeliha">
+                    <th class="th-tabelinha">Capacidade</th>
+                    <th class="th-tabelinha">Produto</th>
+                    <th class="th-tabelinha">Saldo</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="td-tabelinha">{{saldo.numCapacidade | number}}</td>
+                    <td class="td-tabelinha"><strong>{{saldo.codProduto}}</strong></td>
+                    <td class="td-tabelinha">{{saldo.numTotal|number}}</td>
+                  </tr>
+                </tbody>
+              </table>                  
+        </div>
     </div>
+</mdl-card>
+<mdl-card class="demo-card-image larg-1-4" mdl-shadow="0">  
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-tabela">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Produto</th>
+      <th>Quantidate</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let total of saldosTotal; let i = index">
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">{{total.codProduto}}</td>
+      <td>{{total.numQuantidade | number}}</td>
+    </tr>
+  </tbody>
+</table>
+</mdl-card>
 </div>
 <div class="mdl-grid vehicles">
     <div *ngFor="let veiculo of saldosVeiculos; let i = index" 
-    class="mdl-cell mdl-cell--3-col" [class.boxed]="!veiculo.vazio" [class.error]="veiculo.numOcupado > veiculo.numCapacidadeL">
-        <h6 class="text-tank">{{veiculo.codPlaca}}</h6>
-        <p class="text-vehicle">Capacidade: {{veiculo.numCapacidadeL | number}}l</p>
-        <p class="text-vehicle">Multiplos Compartimentos: {{veiculo.multi}}</p>
+         class="mdl-cell mdl-cell--3-col" [class.boxed]="!veiculo.vazio" [class.error]="veiculo.numOcupado > veiculo.numCapacidadeL">
+        <h6 class="text-tank placa">{{veiculo.codPlaca}}</h6>
         <img class="vehicle" src="{{veiculo.image}}" alt="tanque" width="150" height="75">
-        <p class="text-vehicle"><span *ngFor="let saldo of veiculo.saldos; let i = index">
-            <strong>{{saldo.codProduto}}: </strong>{{saldo.numSaldo|number}} l&nbsp;&nbsp;</span></p>
+        <table class="tabelinha" align="center">
+          <thead>
+            <tr class="tr-tabeliha">
+              <th class="th-tabelinha">Capacidade</th>
+              <th class="th-tabelinha">Mult.Comb</th>
+              <th class="th-tabelinha">Saldo</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-tabelinha">{{veiculo.numCapacidadeL | number}}</td>
+              <td class="td-tabelinha">{{veiculo.multi}}</td>
+              <td class="td-tabelinha">
+                  <span *ngFor="let saldo of veiculo.saldos; let i = index">
+                  <strong>{{saldo.codProduto}}:&nbsp;</strong>{{saldo.numSaldo|number}}&nbsp;</span></td>
+            </tr>
+          </tbody>
+        </table>
     </div>
 </div>
+

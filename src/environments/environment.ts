@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //api_url: '/embarques/api',
-  api_url: 'https://ec2.gruposol.com.br/embarques/api',
+  api_url: '/embarques/api',
   api_get: 'https://ec2.gruposol.com.br/embarques/api',
   title: 'Embarques'
 };

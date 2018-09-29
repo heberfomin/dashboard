@@ -10,7 +10,7 @@ import { AuthService } from '../auth/services/auth.service';
 export class PanelComponent implements OnInit {
   titulo  : string = environment.title;
 
-  constructor(private auth: AuthService) {  }
+  constructor(public auth: AuthService) {  }
 
   ngOnInit() {
   }

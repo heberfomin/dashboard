@@ -18,7 +18,7 @@ export class SaldoData{
         } 
         this.percentage = ( numQuantidadeAtual / numCapacidade ) * 100;
         if (this.numTotal < 0) {
-            this.image = `error`
+            this.image = `error`;
         } else if (this.percentage == 0) {
             this.image = `empty`;
         } else if (this.numTotal == this.numCapacidade) {    
@@ -26,7 +26,11 @@ export class SaldoData{
         } else if (this.percentage > 100) {
             this.image = `overflow`;
         } else {
-            this.image =  `0${this.percentage.toString()[0]}0`; 
+            if (this.percentage.toString()[0] == '-') {
+                this.image = `error`;                
+            } else {
+                this.image =  `0${this.percentage.toString()[0]}0`; 
+            }
         }    
     }
 }

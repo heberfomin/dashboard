@@ -15,7 +15,8 @@ export class ApplicationErrorHandle extends ErrorHandler {
       const error = ( typeof errorResponse.error !== 'object' ) ? JSON.parse(errorResponse.error) : errorResponse.error;
       
       if (errorResponse.status === 400 && 
-         (error.error === 'token_expired' || error.error === 'token_invalid' || error.error === 'A token is required' || error.error === 'token_not_provided')) {
+         (error.error === 'token_expired' || error.error === 'token_invalid' || 
+          error.error === 'A token is required' || error.error === 'token_not_provided')) {
         this.goToLogin();
       }
 

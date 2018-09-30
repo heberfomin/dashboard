@@ -43,7 +43,6 @@ export class PanelMainComponent implements OnInit {
   getSaldoVeiculos() {
     return(this.service.getSaldoVeiculos().subscribe(resp => { 
       this.parseDataVeiculos(resp);
-      //console.log(resp);
     }));
   }
 
@@ -59,7 +58,6 @@ export class PanelMainComponent implements OnInit {
 
   apuraTotais() {
     return(this.service.getTotaisSaldo().subscribe(resp => { 
-      console.log(resp);
       this.parseProdutos(resp.produtos);
       this.parseSaldoDet(resp.saldosDet);
       this.parseSaldos(resp.saldos);
@@ -70,7 +68,6 @@ export class PanelMainComponent implements OnInit {
     for (let i = 0;i<jsonData.length;i++) {
       const data = new ProdutoData(jsonData[i].produto);
       this.produtos.push(data);
-      //console.log(this.produtos);
     }
   }
   parseSaldoDet(jsonData) {
@@ -78,7 +75,6 @@ export class PanelMainComponent implements OnInit {
       const data = new SaldosPorProdutoData( jsonData[i].local, jsonData[i].produtos, this.produtos);
       this.saldosDet.push(data);
     }
-    console.log(this.saldosDet);
   }
 
   parseSaldos(jsonData) {

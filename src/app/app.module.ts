@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LoginModule } from './auth/login/login.module';
@@ -12,6 +12,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { PanelRoutingModule } from './panel/panel.routing';
 import { InterceptorModule } from './interceptors/interceptor.module';
+import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
+import { ApplicationErrorHandle } from './app.error-handle.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { InterceptorModule } from './interceptors/interceptor.module';
   ],
   providers: [ 
     AuthGuard, 
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },
+    {provide: ErrorHandler, useClass: ApplicationErrorHandle}
   ],
   bootstrap: [ AppComponent ]
 })

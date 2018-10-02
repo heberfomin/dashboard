@@ -32,6 +32,7 @@ import { SaldoVeiculosComponent } from './panel-main/saldo-veiculos/saldo-veicul
     SaldoVeiculosComponent
     ],
   providers: [ 
+    MdlDialogService
   ],
   exports: [
     PanelComponent,

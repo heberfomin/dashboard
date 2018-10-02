@@ -5,8 +5,7 @@ import { SaldoVeiculoData } from '../../interfaces/saldoVeiculos.model';
 import { SaldoTotalData } from '../../interfaces/saldoTotal.model';
 import { SaldosPorProdutoData } from '../../interfaces/saldosPorProduto.model';
 import { ProdutoData } from '../../interfaces/produtos.model';
-import { SaldoVeiculosComponent } from './saldo-veiculos/saldo-veiculos.component';
-import { MdlDialogReference, MdlDialogService } from '@angular-mdl/core';
+import { MdlDialogService } from '@angular-mdl/core';
 
 @Component({
   selector: 'app-panel-main',

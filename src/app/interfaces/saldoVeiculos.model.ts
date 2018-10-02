@@ -31,7 +31,7 @@ export class SaldoVeiculoData{
         this.numOcupado      = numOcupado;
         this.percentage      = percentage;
         this.saldos          = saldos;
-        if (numOcupado == 0) {
+        if (numOcupado == 0 || this.percentage.toString()[0] == '0') {
             this.vazio       = true;
         }
         if (this.vazio) {

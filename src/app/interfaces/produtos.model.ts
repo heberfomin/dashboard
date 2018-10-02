@@ -1,5 +1,5 @@
 export class ProdutoData{
-    private codigos: Array<{codProduto: string}>;
+    public codigos: Array<{codProduto: string}>;
     constructor(codigos) {
         this.codigos = codigos;
     }

@@ -1,6 +1,6 @@
 export class SaldosPorProdutoData{
     private codLocal: string;
-    private produtos: Array<{
+    public produtos: Array<{
         numSeq: number;
         numQuantidade: number;
     }>
@@ -9,5 +9,8 @@ export class SaldosPorProdutoData{
         this.codLocal   = codLocal;
         this.produtos   = produtos;
         this.codigos    = codigos;
+    }
+    getLocal() {
+        return this.codLocal;
     }
 }

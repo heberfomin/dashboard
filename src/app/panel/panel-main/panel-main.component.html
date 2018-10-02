@@ -1,3 +1,4 @@
+<dialog-outlet></dialog-outlet>
 <div class="mdl-grid tanks">
 <mdl-card class="mdl-cell mdl-cell--8-col demo-card-image" mdl-shadow="0">
     <div class="mdl-grid tanks">
@@ -24,20 +25,27 @@
     </div>
 </mdl-card>
 <mdl-card class="mdl-cell mdl-cell--4-col demo-card-image" mdl-shadow="0">  
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-tabela">
-  <thead>
-    <tr>
-      <th class="mdl-data-table__cell--non-numeric">Produto</th>
-      <th>Quantidate</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let total of saldosTotal; let i = index">
-    <tr>
-      <td class="mdl-data-table__cell--non-numeric">{{total.codProduto}}</td>
-      <td>{{total.numQuantidade | number}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="mdl-grid">  
+  <div class="mdl-cell mdl-cell--10-col">
+      <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-tabela">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">PRODUTO</th>
+              <th>QUANTIDADE</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let total of saldosTotal; let i = index">
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">{{total.codProduto}}</td>
+              <td>{{total.numQuantidade | number}}</td>
+            </tr>
+          </tbody>
+        </table>        
+  </div>
+  <div class="mdl-cell mdl-cell--2-col">
+      <app-saldo-veiculos [saldosDet]="saldosDet" [produtos]="produtos" [saldosTotal]="saldosTotal"></app-saldo-veiculos>  
+  </div>
+</div>
 </mdl-card>
 </div>
 <div class="mdl-grid vehicles">
@@ -65,4 +73,5 @@
         </table>
     </div>
 </div>
+
 

@@ -5,12 +5,15 @@ import { SaldoVeiculoData } from '../../interfaces/saldoVeiculos.model';
 import { SaldoTotalData } from '../../interfaces/saldoTotal.model';
 import { SaldosPorProdutoData } from '../../interfaces/saldosPorProduto.model';
 import { ProdutoData } from '../../interfaces/produtos.model';
+import { SaldoVeiculosComponent } from './saldo-veiculos/saldo-veiculos.component';
+import { MdlDialogReference, MdlDialogService } from '@angular-mdl/core';
 
 @Component({
   selector: 'app-panel-main',
   templateUrl: './panel-main.component.html',
   styleUrls: ['./panel-main.component.css']
 })
+
 export class PanelMainComponent implements OnInit {
   public saldos : SaldoData[] = [];
   public saldosVeiculos : SaldoVeiculoData[] = [];
@@ -18,7 +21,7 @@ export class PanelMainComponent implements OnInit {
   public saldosTotal : SaldoTotalData[] = [];
   public produtos : ProdutoData[] = [];
 
-  constructor(private service: AuthService) { }
+  constructor(private service: AuthService, private dialogService: MdlDialogService) { }
 
   ngOnInit() {
     this.getTanks();
@@ -71,10 +74,24 @@ export class PanelMainComponent implements OnInit {
     }
   }
   parseSaldoDet(jsonData) {
+    var  total: number[] = [0];
+    var  valor: number;
     for (let i = 0; i < jsonData.length; i++) {
+      if (i == 0) {
+        for (let n = 0; n<jsonData[i].produtos.length;n ++) {
+          total[n] = 0;
+        }
+      }
+      for (let n = 0; n<jsonData[i].produtos.length;n ++) {
+        valor = Number(jsonData[i].produtos[n]);
+        total[n] = total[n] + valor;
+      }
+      //console.log(total);
       const data = new SaldosPorProdutoData( jsonData[i].local, jsonData[i].produtos, this.produtos);
       this.saldosDet.push(data);
     }
+    const data = new SaldosPorProdutoData( 'TOTAL', total, this.produtos);
+    this.saldosDet.push(data);  
   }
 
   parseSaldos(jsonData) {

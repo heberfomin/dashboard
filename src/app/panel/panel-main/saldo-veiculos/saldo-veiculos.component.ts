@@ -18,8 +18,8 @@ export class SaldoVeiculosComponent implements OnInit {
 
   }
 
-  onDialogShow(dialogRef) {
-    
+  onDialogShow() {
+
   }
 
   onDialogHide() {

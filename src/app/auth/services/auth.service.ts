@@ -27,9 +27,9 @@ export class AuthService {
 
   logout(): void {
     this.http.get(`${environment.api_url}/auth/logout`).subscribe(resp => {
-      console.log(resp);
-      localStorage.clear();
-      this.router.navigate(['']);
+        localStorage.clear();
+        window.sessionStorage.clear();     
+        this.router.navigate(['']);
     })
   }
  

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdlModule, MdlDialogModule, MdlDialogService } from '@angular-mdl/core';
 import { MdlSelectModule } from '@angular-mdl/select';
+import { MdlDatePickerModule } from '@angular-mdl/datepicker';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
@@ -24,7 +25,8 @@ import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoesto
     HttpModule,
     MdlModule,
     MdlDialogModule,
-    MdlSelectModule
+    MdlSelectModule,
+    MdlDatePickerModule
   ],
   declarations: [
     PanelComponent,

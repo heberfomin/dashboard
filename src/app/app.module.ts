@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler } from '@angular/core';
-
+import { LOCALE_ID, NgModule, ErrorHandler } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginModule } from './auth/login/login.module';
 import { AuthModule } from './auth/auth.module';
@@ -14,6 +13,9 @@ import { PanelRoutingModule } from './panel/panel.routing';
 import { InterceptorModule } from './interceptors/interceptor.module';
 import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
 import { ApplicationErrorHandle } from './app.error-handle.service';
+import { registerLocaleData } from '@angular/common';
+import ptBr from '@angular/common/locales/pt';
+registerLocaleData(ptBr)
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { ApplicationErrorHandle } from './app.error-handle.service';
   ],
   providers: [ 
     AuthGuard, 
+    {provide: LOCALE_ID, useValue: 'pt-BR' },
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     {provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },
     {provide: ErrorHandler, useClass: ApplicationErrorHandle}

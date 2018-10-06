@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular-mdl/core": "^6.0.1",
+    "@angular-mdl/datepicker": "^6.0.0",
     "@angular-mdl/popover": "^6.0.0",
     "@angular-mdl/select": "^6.0.0",
     "@angular/animations": "^6.1.9",
@@ -27,8 +28,10 @@
     "@angular/router": "^6.1.9",
     "core-js": "^2.5.4",
     "mdl-date-textfield": "^1.0.9",
+    "moment": "^2.22.2",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
+    "wijmo": "^5.20182.536-nightly.d20181005.t1656",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

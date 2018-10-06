@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
 import { PanelService } from '../panel.service';
+import { MdlDatePickerService } from '@angular-mdl/datepicker';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-panel-movtoestoque',
@@ -9,8 +11,10 @@ import { PanelService } from '../panel.service';
 })
 export class PanelMovtoestoqueComponent implements OnInit {
   public produtos;
+  public dateFrom: any;
+  public dateTo: any;
 
-  constructor(private auth: AuthService, private panelService: PanelService) { }
+  constructor(private auth: AuthService, private panelService: PanelService, private datePicker: MdlDatePickerService) { }
 
   ngOnInit() {
     return(this.auth.getProdutos().subscribe(resp => { 
@@ -18,6 +22,19 @@ export class PanelMovtoestoqueComponent implements OnInit {
       console.log(this.produtos);
     }
     ));
+  }
+  public pickDateFrom($event: MouseEvent) {
+    this.datePicker.selectDate(this.dateFrom, {openFrom: $event}).subscribe( (dateFrom: Date) => {
+      this.dateFrom = dateFrom ? moment(dateFrom) : null;
+    });
+  }
+  public pickDateTo($event: MouseEvent) {
+    this.datePicker.selectDate(this.dateTo, {openFrom: $event}).subscribe( (dateTo: Date) => {
+      this.dateTo = dateTo ? moment(dateTo) : null;
+    });
+  }
+  public onProcessing() {
+    
   }
 
 }

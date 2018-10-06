@@ -1,0 +1,7 @@
+.mdl-dialog {
+    position: absolute;
+    left: 1;    
+    right: auto;
+    left: 0;
+    transform: translate(0, -100%);
+}

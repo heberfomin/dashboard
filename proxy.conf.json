@@ -23,5 +23,10 @@
         "target": "https://ec2.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
+    },
+    "/embarques/api/getProdutos" : {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
     }
 }

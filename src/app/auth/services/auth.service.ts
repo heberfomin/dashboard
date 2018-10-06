@@ -58,4 +58,8 @@ export class AuthService {
   getTotaisSaldo(): any {
     return this.http.get<any>(`${environment.api_url}/getSaldoBase`);
   }
+
+  getProdutos():any {
+    return this.http.get<any>(`${environment.api_url}/getProdutos`);
+    } 
 }

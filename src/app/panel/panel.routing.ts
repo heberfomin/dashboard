@@ -7,6 +7,7 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 import { PanelViagensComponent } from './panel-viagens/panel-viagens.component';
 import { PanelFluxoComponent } from './panel-fluxo/panel-fluxo.component';
 import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carregamentos.component';
+import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoestoque.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carrega
           { path: 'viagens', component: PanelViagensComponent },
           { path: 'fluxo', component: PanelFluxoComponent },
           { path: 'carregamentos', component: PanelCarregamentosComponent },
+          { path: 'movtoestoque', component: PanelMovtoestoqueComponent },
         ]
       }
     ])

@@ -17,7 +17,7 @@ import { ApplicationErrorHandle } from './app.error-handle.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

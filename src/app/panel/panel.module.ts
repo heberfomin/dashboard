@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MdlModule, MdlDialogModule, MdlDialogService } from '@angular-mdl/core';
+import { MdlSelectModule } from '@angular-mdl/select';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
@@ -13,6 +14,7 @@ import { PanelFluxoComponent } from './panel-fluxo/panel-fluxo.component';
 import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carregamentos.component';
 import { SaldoVeiculosComponent } from './panel-main/saldo-veiculos/saldo-veiculos.component';
 import { PanelService } from './panel.service';
+import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoestoque.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import { PanelService } from './panel.service';
     FormsModule,
     HttpModule,
     MdlModule,
-    MdlDialogModule
+    MdlDialogModule,
+    MdlSelectModule
   ],
   declarations: [
     PanelComponent,
@@ -30,7 +33,8 @@ import { PanelService } from './panel.service';
     PanelViagensComponent,
     PanelFluxoComponent,
     PanelCarregamentosComponent,
-    SaldoVeiculosComponent
+    SaldoVeiculosComponent,
+    PanelMovtoestoqueComponent
     ],
   providers: [ 
     MdlDialogService,

@@ -16,6 +16,7 @@
     <mdl-layout-drawer>
         <mdl-layout-title>{{titulo}}</mdl-layout-title>
         <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" [routerLink]="['./movtoestoque']" (click)="mdlLayout1.closeDrawer()">Movimento de Estoque</a>
             <a class="mdl-navigation__link" [routerLink]="['./carregamentos']" (click)="mdlLayout1.closeDrawer()">Carregamentos</a>
             <a class="mdl-navigation__link" [routerLink]="['./viagens']" (click)="mdlLayout1.closeDrawer()">Viagens</a>
             <a class="mdl-navigation__link" [routerLink]="['./Entregas']" (click)="mdlLayout1.closeDrawer()">Entregas</a>

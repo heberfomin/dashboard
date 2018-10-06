@@ -1,0 +1,36 @@
+<dialog-outlet></dialog-outlet>
+<!-- Colored icon button -->
+<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" mdl-ripple (click)="editUserDialog.show()">
+  <i class="material-icons">playlist_add_check</i>
+</button>
+
+<mdl-dialog #editUserDialog
+            [mdl-dialog-config]="{
+              clickOutsideToClose: false,
+              styles:{
+                'width': '18em',
+                'height':'30em',
+                'position': 'absolute',
+                'left': '1',    
+                'right': 'auto',
+                'left': '0',
+                'transform': 'translate(0, -65%)'},
+              isModal:true,
+              openFrom: editUserButton,
+              enterTransitionDuration: 400,
+              leaveTransitionDuration: 400}">
+  <div class="mdl-dialog__actions">
+    <mdl-button mdl-button-type="icon" (click)="editUserDialog.close()">
+        <mdl-icon>close</mdl-icon>
+    </mdl-button>
+  </div>
+
+  <!-- Select with fixed height -->
+  <mdl-select floating-label [(ngModel)]="color" placeholder="Produto">
+    <mdl-option value="all"><em>All</em></mdl-option>
+    <mdl-option *ngFor="let produto of produtos" [value]="produto">{{produto}}</mdl-option>
+  </mdl-select>   
+
+  <div class="mdl-dialog__content">
+  </div>
+</mdl-dialog>

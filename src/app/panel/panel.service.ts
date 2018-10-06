@@ -73,5 +73,13 @@ export class PanelService {
     return saldosTotal;
   }
 
+  parsecodProdutos(jsonData) {
+    var produtos = [];
+    for (let i = 0; i< jsonData.length; i++) {
+      const data = Array(jsonData[i].codProduto);
+      produtos.push(data);
+    }
+    return produtos;
+  }
 
 }

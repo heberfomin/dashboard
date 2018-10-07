@@ -1,19 +1,17 @@
 <dialog-outlet></dialog-outlet>
 <!-- Colored icon button -->
-<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" mdl-ripple (click)="editUserDialog.show()">
-  <i class="material-icons">playlist_add_check</i>
-</button>
+<div class="content-center">
+  <div class="content">
+    <button class="mdl-button mdl-js-button mdl-button--colored" mdl-ripple (click)="editUserDialog.show()">
+      Selecione o filtro
+    </button>
+  </div>
+</div>
 
 <mdl-dialog #editUserDialog
             [mdl-dialog-config]="{
               clickOutsideToClose: false,
               styles:{
-                'width': '18em',
-                'height':'24em',
-                'position': 'absolute',
-                'left': '1',    
-                'right': 'auto',
-                'left': '0',
                 'transform': 'translate(0, -90%)'},
               isModal:true,
               openFrom: editUserButton,
@@ -26,44 +24,46 @@
   </div>
 
 <div class="mdl-dialog__content">
-  <div class="mdl-grid">
-    <div class="mdl-cell--12-col">
-      <mdl-select floating-label [(ngModel)]="color" placeholder="Produto" id="produto">
-        <mdl-option value="all"><em>All</em></mdl-option>
-        <mdl-option *ngFor="let produto of produtos" [value]="produto">{{produto}}</mdl-option>
-      </mdl-select>   
+  <form>
+    <div class="mdl-grid">
+      <div class="mdl-cell--12-col">
+        <mdl-select floating-label [(ngModel)]="color" placeholder="Produto" id="produto">
+          <mdl-option value="all"><em>Todos</em></mdl-option>
+          <mdl-option *ngFor="let produto of produtos" [value]="produto">{{produto}}</mdl-option>
+        </mdl-select>   
+      </div>
+      <div class="mdl-cell--6-col">
+        <span class="mdl--text-right">Início:</span>
+      </div> 
+      <div class="mdl-cell--6-col">
+          <button
+            mdl-button
+            (click)="pickDateFrom($event)"
+            mdl-button-type="icon"
+            mdl-ripple>
+            <mdl-icon>event</mdl-icon>
+          </button>
+          <span>{{ dateFrom?.format('DD/MM/YYYY') }}</span>
+      </div>
+      <div class="mdl-cell--6-col">
+          <span>Término:</span>
+      </div>
+      <div class="mdl-cell--6-col">
+          <button
+            mdl-button
+            (click)="pickDateTo($event)"
+            mdl-button-type="icon"
+            mdl-ripple>
+            <mdl-icon>event</mdl-icon>
+          </button>
+          <span>{{ dateTo?.format('DD/MM/YYYY') }}</span>  
+      </div>
     </div>
-    <div class="mdl-cell--6-col">
-      <span class="mdl--text-right">Início:</span>
-    </div> 
-    <div class="mdl-cell--6-col">
-        <button
-          mdl-button
-          (click)="pickDateFrom($event)"
-          mdl-button-type="icon"
-          mdl-ripple>
-          <mdl-icon>event</mdl-icon>
-        </button>
-        <span>{{ dateFrom?.format('L') }}</span>
+      <div class="mdl-dialog__actions">
+        <mdl-button mdl-button-type="fab" (click)="onProcessing()">
+          <mdl-icon>done</mdl-icon>
+        </mdl-button>
     </div>
-    <div class="mdl-cell--6-col">
-        <span>Término:</span>
-    </div>
-    <div class="mdl-cell--6-col">
-        <button
-          mdl-button
-          (click)="pickDateTo($event)"
-          mdl-button-type="icon"
-          mdl-ripple>
-          <mdl-icon>event</mdl-icon>
-        </button>
-        <span>{{ dateTo?.format('L') }}</span>  
-    </div>
-  </div>
-    <div class="mdl-dialog__actions">
-      <mdl-button mdl-button-type="fab" (click)="onProcessing()">
-        <mdl-icon>done</mdl-icon>
-      </mdl-button>
-  </div>
+  </form>
 </div>
 </mdl-dialog>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
 import { PanelService } from '../panel.service';
-import { MdlDatePickerService } from '@angular-mdl/datepicker';
+import { MdlDatePickerModule, MdlDatePickerService } from '@angular-mdl/datepicker';
 import * as moment from 'moment';
 
 @Component({
@@ -14,7 +14,9 @@ export class PanelMovtoestoqueComponent implements OnInit {
   public dateFrom: any;
   public dateTo: any;
 
-  constructor(private auth: AuthService, private panelService: PanelService, private datePicker: MdlDatePickerService) { }
+  constructor(private auth: AuthService, private panelService: PanelService, private datePickerModule: MdlDatePickerModule, private datePicker: MdlDatePickerService) { 
+    moment.locale('pt-br');
+  }
 
   ngOnInit() {
     return(this.auth.getProdutos().subscribe(resp => { 

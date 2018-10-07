@@ -2,3 +2,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+.mdl-button--fab { height:56px; }
+.content-center {     display: table-cell;
+    vertical-align: middle;
+    height: 100vh;
+    width: 100vw;
+    text-align: center; }

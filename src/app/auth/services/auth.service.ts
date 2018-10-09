@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
@@ -62,4 +62,13 @@ export class AuthService {
   getProdutos():any {
     return this.http.get<any>(`${environment.api_url}/getProdutos`);
     } 
-}
+
+  postReqMovtoEstoque(codProduto: any, dateFrom, dateTo):any {
+      var json = JSON.stringify({codProduto: codProduto, dateFrom: dateFrom, dateTo: dateTo});
+      var params = 'json=' + json;
+      var cabe = new HttpHeaders();
+      cabe.append('Content-Type', 'application/x-www-form-urlencoded');
+      this.http.post(`${environment.api_url}/getMovtoEstoque`,params, { headers : cabe })
+      .subscribe((rest : any) => { console.log(rest) });
+  }  
+} 

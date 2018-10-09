@@ -4,7 +4,7 @@ import { MdlModule, MdlDialogModule, MdlDialogService } from '@angular-mdl/core'
 import { MdlSelectModule } from '@angular-mdl/select';
 import { MdlDatePickerModule } from '@angular-mdl/datepicker';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PanelRoutingModule } from './panel.routing';
 import { PanelComponent } from './panel.component';
@@ -22,6 +22,7 @@ import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoesto
     CommonModule,
     PanelRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     MdlModule,
     MdlDialogModule,

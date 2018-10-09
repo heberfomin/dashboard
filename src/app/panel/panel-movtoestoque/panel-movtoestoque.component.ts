@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../auth/services/auth.service';
 import { PanelService } from '../panel.service';
 import { MdlDatePickerModule, MdlDatePickerService } from '@angular-mdl/datepicker';
@@ -10,6 +11,7 @@ import * as moment from 'moment';
   styleUrls: ['./panel-movtoestoque.component.css']
 })
 export class PanelMovtoestoqueComponent implements OnInit {
+  public codProduto: any;
   public produtos;
   public dateFrom: any;
   public dateTo: any;
@@ -21,7 +23,7 @@ export class PanelMovtoestoqueComponent implements OnInit {
   ngOnInit() {
     return(this.auth.getProdutos().subscribe(resp => { 
       this.produtos  = this.panelService.parsecodProdutos(resp.produtos);
-      console.log(this.produtos);
+      //console.log(this.produtos);
     }
     ));
   }
@@ -36,7 +38,8 @@ export class PanelMovtoestoqueComponent implements OnInit {
     });
   }
   public onProcessing() {
-    
+    var data = this.auth.postReqMovtoEstoque(this.codProduto, this.dateFrom.format('YYYY-MM-DD'), this.dateTo.format('YYYY-MM-DD')); 
+    console.log(data);
   }
 
 }

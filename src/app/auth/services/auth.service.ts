@@ -7,9 +7,12 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { User } from '../../interfaces/user.model';
+import { MovtoEstoque } from '../../interfaces/MovtoEstoque.model';
+import { map } from 'rxjs-compat/operator/map';
 
 @Injectable()
 export class AuthService {
+  public movimento : MovtoEstoque[] = [];
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -48,27 +51,44 @@ export class AuthService {
   }
 
   getSaldos():any {
-    return this.http.get<any>(`${environment.api_url}/getSaldoTanques`);
+    if (this.getUser()) {
+        return this.http.get<any>(`${environment.api_url}/getSaldoTanques`);
+    }
   }  
 
   getSaldoVeiculos():any {  
-    return this.http.get<any>(`${environment.api_url}/getSaldoVeiculos`);
+    if (this.getUser()) {
+        return this.http.get<any>(`${environment.api_url}/getSaldoVeiculos`);
+    }
   }  
 
   getTotaisSaldo(): any {
-    return this.http.get<any>(`${environment.api_url}/getSaldoBase`);
+    if (this.getUser()) {
+       return this.http.get<any>(`${environment.api_url}/getSaldoBase`);
+    }
   }
 
   getProdutos():any {
-    return this.http.get<any>(`${environment.api_url}/getProdutos`);
-    } 
+    if (this.getUser()) {
+      return this.http.get<any>(`${environment.api_url}/getProdutos`);
+    }
+  } 
 
-  postReqMovtoEstoque(codProduto: any, dateFrom, dateTo):any {
-      var json = JSON.stringify({codProduto: codProduto, dateFrom: dateFrom, dateTo: dateTo});
-      var params = 'json=' + json;
-      var cabe = new HttpHeaders();
-      cabe.append('Content-Type', 'application/x-www-form-urlencoded');
-      this.http.post(`${environment.api_url}/getMovtoEstoque`,params, { headers : cabe })
-      .subscribe((rest : any) => { console.log(rest) });
-  }  
+  postReqMovtoEstoque(codProduto: any, dateFrom, dateTo): any {
+    var movto : MovtoEstoque;
+    if (this.getUser()) {    
+      this.http.post<any>(`${environment.api_url}/getMovtoEstoque`,
+      JSON.stringify ({json:{ codProduto: codProduto, dateFrom: dateFrom, dateTo: dateTo }}),
+      { headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .subscribe(rest => { 
+        for(let i = 0; i<rest.data.length; i++) {
+          movto = new MovtoEstoque;
+          movto = rest.data[i];
+          this.movimento.push(movto);
+        }
+      });
+    }
+    return this.movimento;
+  } 
+
 } 

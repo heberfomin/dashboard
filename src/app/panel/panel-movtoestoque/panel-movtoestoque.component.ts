@@ -4,6 +4,7 @@ import { AuthService } from '../../auth/services/auth.service';
 import { PanelService } from '../panel.service';
 import { MdlDatePickerModule, MdlDatePickerService } from '@angular-mdl/datepicker';
 import * as moment from 'moment';
+import { MovtoEstoque } from '../../interfaces/MovtoEstoque.model';
 
 @Component({
   selector: 'app-panel-movtoestoque',
@@ -15,6 +16,7 @@ export class PanelMovtoestoqueComponent implements OnInit {
   public produtos;
   public dateFrom: any;
   public dateTo: any;
+  public MovtoEstoque : MovtoEstoque[] = [];
 
   constructor(private auth: AuthService, private panelService: PanelService, private datePickerModule: MdlDatePickerModule, private datePicker: MdlDatePickerService) { 
     moment.locale('pt-br');
@@ -38,8 +40,7 @@ export class PanelMovtoestoqueComponent implements OnInit {
     });
   }
   public onProcessing() {
-    var data = this.auth.postReqMovtoEstoque(this.codProduto, this.dateFrom.format('YYYY-MM-DD'), this.dateTo.format('YYYY-MM-DD')); 
-    console.log(data);
+    this.MovtoEstoque = this.auth.postReqMovtoEstoque(this.codProduto, this.dateFrom.format('YYYY-MM-DD'), this.dateTo.format('YYYY-MM-DD')); 
   }
 
 }

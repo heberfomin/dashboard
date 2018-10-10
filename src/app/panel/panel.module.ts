@@ -5,6 +5,7 @@ import { MdlSelectModule } from '@angular-mdl/select';
 import { MdlDatePickerModule } from '@angular-mdl/datepicker';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataTableModule } from "angular-6-datatable";
 
 import { PanelRoutingModule } from './panel.routing';
 import { PanelComponent } from './panel.component';
@@ -16,6 +17,7 @@ import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carrega
 import { SaldoVeiculosComponent } from './panel-main/saldo-veiculos/saldo-veiculos.component';
 import { PanelService } from './panel.service';
 import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoestoque.component';
+import { DatatableComponent } from './panel-movtoestoque/datatable/datatable.component';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoesto
     MdlModule,
     MdlDialogModule,
     MdlSelectModule,
-    MdlDatePickerModule
+    MdlDatePickerModule,
+    DataTableModule
   ],
   declarations: [
     PanelComponent,
@@ -37,7 +40,8 @@ import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoesto
     PanelFluxoComponent,
     PanelCarregamentosComponent,
     SaldoVeiculosComponent,
-    PanelMovtoestoqueComponent
+    PanelMovtoestoqueComponent,
+    DatatableComponent
     ],
   providers: [ 
     MdlDialogService,
@@ -45,6 +49,7 @@ import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoesto
   ],
   exports: [
     PanelComponent,
+    DatatableComponent
   ]
 })
 export class PanelModule { }

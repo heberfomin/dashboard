@@ -23,6 +23,7 @@ export class ApplicationErrorHandle extends ErrorHandler {
   }
   goToLogin(): void {
     const router = this.injector.get(Router);
+    localStorage.clear;
     router.navigate(['auth/login']);
   }
 

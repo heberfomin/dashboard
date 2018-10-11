@@ -1,7 +1,8 @@
 <dialog-outlet></dialog-outlet>
 <!-- Colored icon button -->
 <div class="mdl-grid mdl-grid--no-spacing">
-    <div class="mdl-cell mdl-cell--12-col mdl-cell--top mdl-typography--text-right">
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--top"><em class="mdl-color-text--primary">> {{funcao}}</em></div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--top mdl-typography--text-right">
         <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--primary" mdl-ripple (click)="editUserDialog.show()">
           <i class="material-icons">playlist_add_check</i>
         </button>
@@ -11,8 +12,8 @@
                         clickOutsideToClose: false,
                         styles:{
                           'width':'25em',
-                          'height':'30em',
-                          'transform': 'translate(0, -60%)'},
+                          'height':'20em',
+                          'transform': 'translate(0, -65%)'},
                         isModal:true,
                         openFrom: editUserButton,
                         enterTransitionDuration: 400,
@@ -75,4 +76,4 @@
         </mdl-dialog>        
     </div>
   </div>
-<app-datatable [MovtoEstoque]="MovtoEstoque"></app-datatable>
+<app-datatable [MovtoEstoque]="MovtoEstoque" [ArrayTransacoes]="ArrayTransacoes"></app-datatable>

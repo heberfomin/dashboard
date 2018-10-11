@@ -2,32 +2,32 @@
   <table class="table table-striped" [mfData]="MovtoEstoque" #mf="mfDataTable" [mfRowsOnPage]="15">
     <thead>
     <tr>
-      <th style="width: 15%"><mfDefaultSorter by="datMovto">Data</mfDefaultSorter></th>
+      <th style="width: 12%"><mfDefaultSorter by="datMovto">Data</mfDefaultSorter></th>
       <th style="width: 6%"><mfDefaultSorter by="codProduto">Produto</mfDefaultSorter></th>
       <th style="width: 6%"><mfDefaultSorter by="codTipoMovto">Tipo</mfDefaultSorter></th>
-      <th style="width: 6%"><mfDefaultSorter by="codTransacao">Transação</mfDefaultSorter></th>
+      <th style="width: 15%"><mfDefaultSorter by="codTransacao">Transação</mfDefaultSorter></th>
       <th style="width: 6%"><mfDefaultSorter by="codOperador">Operador</mfDefaultSorter></th>
       <th style="width: 6%"><mfDefaultSorter by="codPlaca">Placa</mfDefaultSorter></th>
       <th style="width: 8%"><mfDefaultSorter by="numDocto">Documento</mfDefaultSorter></th>
-      <th style="width: 10%"><mfDefaultSorter by="numTanque">Tanque</mfDefaultSorter></th>
-      <th style="width: 10%"><mfDefaultSorter by="numQtdAntes">Saldo Antes</mfDefaultSorter></th>
-      <th style="width: 10%"><mfDefaultSorter by="numQuantidade">Quantidade</mfDefaultSorter></th>
-      <th style="width: 10%"><mfDefaultSorter by="numQtdApos">Saldo Após</mfDefaultSorter></th>
+      <th style="width: 6%"><mfDefaultSorter by="numTanque">Tanque</mfDefaultSorter></th>
+      <th style="width: 8%"><mfDefaultSorter by="numQtdAntes">Saldo Antes</mfDefaultSorter></th>
+      <th style="width: 8%"><mfDefaultSorter by="numQuantidade">Quantidade</mfDefaultSorter></th>
+      <th style="width: 8%"><mfDefaultSorter by="numQtdApos">Saldo Após</mfDefaultSorter></th>
   </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of mf.data">
-        <td>{{item.datMovto | date:short}}</td>
-        <td>{{item.codProduto | uppercase}}</td>
-        <td>{{item.codTipoMovto }}</td>
-        <td>{{item.codTransacao }}</td>
-        <td>{{item.codOperador }}</td>
-        <td>{{item.codPlaca | uppercase}}</td>
-        <td>{{item.numDocto }}</td>
-        <td>{{item.numTanque }}</td>
-        <td class="text-right">{{item.numQtdAntes|number}}</td>
-        <td class="text-right">{{item.numQuantidade|number}}</td>
-        <td class="text-right">{{item.numQtdApos|number}}</td>
+        <td>{{ item.datMovto | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+        <td>{{ item.codProduto | uppercase}}</td>
+        <td>{{ item.codTipoMovto == 1 ? 'Ent' : 'Sai'}}</td>
+        <td>{{ getTransacao(item.codTransacao) }}</td>
+        <td>{{ item.codOperador }}</td>
+        <td>{{ item.codPlaca | uppercase}}</td>
+        <td>{{ item.numDocto }}</td>
+        <td class="text-center">{{ item.numTanque }}</td>
+        <td class="text-right">{{ item.numQtdAntes|number }}</td>
+        <td class="text-right">{{ item.numQuantidade|number }}</td>
+        <td class="text-right">{{ item.numQtdApos|number }}</td>
     </tr>
     </tbody>
     <tfoot>

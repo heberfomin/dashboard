@@ -4,6 +4,7 @@ import { SaldoVeiculoData } from '../interfaces/saldoVeiculos.model';
 import { ProdutoData } from '../interfaces/produtos.model';
 import { SaldosPorProdutoData } from '../interfaces/saldosPorProduto.model';
 import { SaldoTotalData } from '../interfaces/saldoTotal.model';
+import { Transacoes } from '../interfaces/Transacoes.model';
 
 @Injectable({
   providedIn: 'root'
@@ -82,4 +83,22 @@ export class PanelService {
     return produtos;
   }
 
+  parsecodPlaca(jsonData) {
+    console.log(jsonData);
+    var veiculos = [];
+    for (let i = 0; i< jsonData.length; i++) {
+      const data = Array(jsonData[i].codPlaca);
+      veiculos.push(data);
+    }
+    return veiculos;
+  }
+
+  parseTransacoes(jsonData) {
+    var ArrayTransacoes : Transacoes[] = [];
+    for (let i = 0;i<jsonData.length; i++) {
+      const data = new Transacoes(jsonData[i].codTransacao,jsonData[i].desTransacao);
+      ArrayTransacoes.push(data);
+    }
+    return ArrayTransacoes;
+  }
 }

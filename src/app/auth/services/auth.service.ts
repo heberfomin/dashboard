@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 import { User } from '../../interfaces/user.model';
 import { MovtoEstoque } from '../../interfaces/MovtoEstoque.model';
 import { map } from 'rxjs-compat/operator/map';
+import { Carregamentos } from '../../interfaces/Carregamentos.model';
+import { Viagens } from '../../interfaces/Viagens.model';
 
 @Injectable()
 export class AuthService {
   public movimento : MovtoEstoque[] = [];
-
+  public carregamentos : Carregamentos[] = [];
+  public viagens : Viagens[] = [];
   constructor(private http: HttpClient, private router: Router) { }
 
   check(): boolean {
@@ -74,8 +77,21 @@ export class AuthService {
     }
   } 
 
+  getTransacoes():any {
+    if (this.getUser()) {
+      return this.http.get<any>(`${environment.api_url}/getTransacoes`);
+    }
+  } 
+
+  getVeiculos():any {
+    if (this.getUser()) {
+      return this.http.get<any>(`${environment.api_url}/getVeiculos`);
+    }
+  } 
+
   postReqMovtoEstoque(codProduto: any, dateFrom, dateTo): any {
     var movto : MovtoEstoque;
+    this.movimento = [];
     if (this.getUser()) {    
       this.http.post<any>(`${environment.api_url}/getMovtoEstoque`,
       JSON.stringify ({json:{ codProduto: codProduto, dateFrom: dateFrom, dateTo: dateTo }}),
@@ -89,6 +105,42 @@ export class AuthService {
       });
     }
     return this.movimento;
+  } 
+
+  postReqCarregamentos(codProduto: any, dateFrom, dateTo): any {
+    var Carregamento : Carregamentos;
+    this.carregamentos = [];
+    if (this.getUser()) {    
+      this.http.post<any>(`${environment.api_url}/getCarregamentos`,
+      JSON.stringify ({json:{ codProduto: codProduto, dateFrom: dateFrom, dateTo: dateTo }}),
+      { headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .subscribe(rest => { 
+        for(let i = 0; i<rest.data.length; i++) {
+          Carregamento = new Carregamentos;
+          Carregamento = rest.data[i];
+          this.carregamentos.push(Carregamento);
+        }
+      });
+    }
+    return this.carregamentos;
+  }   
+
+  postReqViagens(codPlaca: any, dateFrom, dateTo): any {
+    var ArrayViagens : Viagens;
+    this.viagens = [];
+    if (this.getUser()) {    
+      this.http.post<any>(`${environment.api_url}/getViagens`,
+      JSON.stringify ({json:{ codPlaca: codPlaca, dateFrom: dateFrom, dateTo: dateTo }}),
+      { headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .subscribe(rest => { 
+        for(let i = 0; i<rest.data.length; i++) {
+          ArrayViagens = new Viagens;
+          ArrayViagens = rest.data[i];
+          this.viagens.push(ArrayViagens);
+        }
+      });
+    }
+    return this.viagens;
   } 
 
 } 

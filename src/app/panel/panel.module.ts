@@ -18,6 +18,9 @@ import { SaldoVeiculosComponent } from './panel-main/saldo-veiculos/saldo-veicul
 import { PanelService } from './panel.service';
 import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoestoque.component';
 import { DatatableComponent } from './panel-movtoestoque/datatable/datatable.component';
+import { DatatableCarregamentosComponent } from './panel-carregamentos/datatable-carregamentos/datatable-carregamentos.component';
+import { DatatableViagensComponent } from './panel-viagens/datatable-viagens/datatable-viagens.component';
+import { ReloadComponent } from './panel-main/reload/reload.component';
 
 @NgModule({
   imports: [
@@ -41,7 +44,10 @@ import { DatatableComponent } from './panel-movtoestoque/datatable/datatable.com
     PanelCarregamentosComponent,
     SaldoVeiculosComponent,
     PanelMovtoestoqueComponent,
-    DatatableComponent
+    DatatableComponent,
+    DatatableCarregamentosComponent,
+    DatatableViagensComponent,
+    ReloadComponent
     ],
   providers: [ 
     MdlDialogService,

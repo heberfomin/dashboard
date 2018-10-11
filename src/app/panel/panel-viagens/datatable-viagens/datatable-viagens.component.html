@@ -1,0 +1,49 @@
+<div>
+    <table class="table table-striped" [mfData]="viagens" #mf="mfDataTable" [mfRowsOnPage]="15">
+      <thead>
+        <tr>
+            <th style="width: 8%"><mfDefaultSorter by="datViagem">Data</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="codPlaca">Placa</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="codProduto">Produto</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="codMotorista">Motorista</mfDefaultSorter></th>
+            <th style="width: 5%"><mfDefaultSorter by="indViagemAberta">Aberta</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="indMultiCombustivel">Multi Comb.</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="numEncerranteIni">Encerrante Inicial</mfDefaultSorter></th>
+            <th style="width: 8%"><mfDefaultSorter by="numlitrosSaida">Carga</mfDefaultSorter></th>
+            <th style="width: 12%"><mfDefaultSorter by="datRetorno">Retorno</mfDefaultSorter></th>
+            <th style="width: 4%"><mfDefaultSorter by="numTanqueSaida">Tanque</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="numEncerranteFinal">Encerrante Final</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="numTotDescarga">Entregue</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="numTotDescarregado">Descarregado</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="numEncerranteDescarga">Encerrante Desc.</mfDefaultSorter></th>
+            <th style="width: 6%"><mfDefaultSorter by="numDiferenca">Diferenca</mfDefaultSorter></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mf.data">
+            <td>{{ item.datViagem | date:'dd/MM/yyyy'}}</td>
+            <td>{{ item.codPlaca | uppercase}}</td>
+            <td>{{ item.codProduto | uppercase}}</td>
+            <td>{{ item.codMotorista }}</td>
+            <td class="text-center">{{ item.indViagemAberta == 1 ? 'Sim' : 'Não'}}</td>
+            <td class="text-center">{{ item.indMultiCombustivel == 1 ? 'Sim' : 'Não'}}</td>
+            <td class="text-right">{{ item.numEncerranteIni | number  }}</td>
+            <td class="text-right">{{ item.numlitrosSaida | number }}</td>
+            <td>{{ item.datRetorno | date:'dd/MM/yyyy hh:mm' }}</td>
+            <td class="text-center">{{ item.numTanqueSaida }}</td>
+            <td class="text-right">{{ item.numEncerranteFinal | number }}</td>
+            <td class="text-right">{{ item.numTotDescarga | number }}</td>
+            <td class="text-right">{{ item.numTotDescarregado | number }}</td>
+            <td class="text-right">{{ item.numEncerranteDescarga | number }}</td>
+            <td class="text-right">{{ item.numDiferenca | number }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>

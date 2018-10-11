@@ -33,5 +33,25 @@
         "target": "https://ec2.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
+    },
+    "/embarques/api/getTransacoes" : {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
+    },
+    "/embarques/api/getCarregamentos" : {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
+    },
+    "/embarques/api/getVeiculos" : {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
+    },
+    "/embarques/api/getViagens" : {
+        "target": "https://ec2.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
     }
 }

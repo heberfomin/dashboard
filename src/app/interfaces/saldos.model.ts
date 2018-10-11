@@ -29,7 +29,11 @@ export class SaldoData{
             if (this.percentage.toString()[0] == '-') {
                 this.image = `error`;                
             } else {
-                this.image =  `0${this.percentage.toString()[0]}0`; 
+                if (this.percentage > 0 && this.percentage < 10) {
+                    this.image =  '010';     
+                } else {
+                    this.image =  `0${this.percentage.toString()[0]}0`; 
+                }
             }
         }    
     }

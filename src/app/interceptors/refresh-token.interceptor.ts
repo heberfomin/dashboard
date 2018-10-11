@@ -13,7 +13,6 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
         const error = (typeof errorResponse.error !== 'object' ) ? JSON.parse(errorResponse.error) : errorResponse ;
         if (errorResponse.status === 401 && error.error === 'token_expired') {
             const http = this.injector.get(HttpClient);
-
             return http.post<any>(`$environmet.api_url/auth/refresh`,{})
             .flatMap( data => {
                 localStorage.setItem('token', data.token);

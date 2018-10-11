@@ -1,0 +1,31 @@
+export class Viagens {
+    datViagem: any;
+    codPlaca: string;
+    codProduto: string;
+    codOperador: string;
+    codMotorista: string;
+    numEncerranteIni: number;
+    numlitrosSaida: number;
+    numEncerranteFinal: number;
+    numTotDescarga: number;
+    numTotEntregas: number;
+    numTotDescarregado: number;
+    numEncerranteDescarga: number;
+    numDiferenca: number;
+    indViagemAberta: any;
+    datSaida: any;
+    datRetorno: any;
+    numTanqueSaida: number;
+    numTanqueRetorno: number;
+    numReferencia: string;
+    indAeroporto: any;
+    numSobras: number;
+    numFaltas: number;
+    indEmergencial: any;
+    indStandBy: any;
+    codAkLink: number;
+    indMultiCombustivel: any;
+    indDescargaSE: any;
+    akCarregamento: number;
+    akOrigem: number;
+}

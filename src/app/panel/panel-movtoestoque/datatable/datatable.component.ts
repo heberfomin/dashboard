@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MovtoEstoque } from '../../../interfaces/MovtoEstoque.model';
+import { Transacoes } from '../../../interfaces/Transacoes.model';
 
 @Component({
   selector: 'app-datatable',
@@ -8,10 +9,19 @@ import { MovtoEstoque } from '../../../interfaces/MovtoEstoque.model';
 })
 export class DatatableComponent implements OnInit {
   @Input() MovtoEstoque : MovtoEstoque[];
+  @Input() ArrayTransacoes : Transacoes[];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getTransacao(codigo) {
+    var result = '';
+    if (codigo && codigo > 0) {
+      var result = this.ArrayTransacoes.find(item => item.codTransacao == codigo).desTransacao;
+    }
+    return  (result) ? result : codigo;  
   }
 
 }

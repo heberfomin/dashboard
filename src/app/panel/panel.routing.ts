@@ -8,6 +8,8 @@ import { PanelViagensComponent } from './panel-viagens/panel-viagens.component';
 import { PanelFluxoComponent } from './panel-fluxo/panel-fluxo.component';
 import { PanelCarregamentosComponent } from './panel-carregamentos/panel-carregamentos.component';
 import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoestoque.component';
+import { PanelEntregasComponent } from './panel-entregas/panel-entregas.component';
+import { PanelAbastecimentosComponent } from './panel-abastecimentos/panel-abastecimentos.component';
 
 @NgModule({
   imports: [
@@ -23,6 +25,8 @@ import { PanelMovtoestoqueComponent } from './panel-movtoestoque/panel-movtoesto
           { path: 'fluxo', component: PanelFluxoComponent },
           { path: 'carregamentos', component: PanelCarregamentosComponent },
           { path: 'movtoestoque', component: PanelMovtoestoqueComponent },
+          { path: 'entregas', component: PanelEntregasComponent },
+          { path: 'abastecimentos', component: PanelAbastecimentosComponent },
         ]
       }
     ])

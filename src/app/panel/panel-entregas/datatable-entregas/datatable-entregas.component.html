@@ -1,0 +1,37 @@
+<div>
+  <table class="table table-striped" [mfData]="entregas" #mf="mfDataTable" [mfRowsOnPage]="15">
+    <thead>
+      <tr>
+          <th style="width: 13%"><mfDefaultSorter  by="datEntrega">Data</mfDefaultSorter></th>
+          <th style="width: 8%"><mfDefaultSorter  by="codPlaca">Placa</mfDefaultSorter></th>
+          <th style="width: 8%"><mfDefaultSorter  by="codMotorista">Motorista</mfDefaultSorter></th>
+          <th style="width: 8%"><mfDefaultSorter  by="codProduto">Produto</mfDefaultSorter></th>
+          <th style="width: 9%"><mfDefaultSorter  by="indAvulsa">Tipo</mfDefaultSorter></th>
+          <th style="width: 9%"><mfDefaultSorter  by="numBoletim">N.Avulso</mfDefaultSorter></th>
+          <th style="width: 9%"><mfDefaultSorter  by="numNota">NF</mfDefaultSorter></th>
+          <th style="width: 9%"><mfDefaultSorter  by="numQtdEntregue">Quantidade</mfDefaultSorter></th>
+          <th style="width: 9%"><mfDefaultSorter by="numQtdSaldo">Saldo</mfDefaultSorter></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of mf.data">
+          <td>{{ item.datEntrega | date:'dd/MM/yyyy hh:mm'}}</td>
+          <td>{{ item.codPlaca | uppercase}}</td>
+          <td>{{ item.codMotorista }}</td>
+          <td>{{ item.codProduto | uppercase}}</td>
+          <td class="text-center">{{ item.indAvulsa == 1 ? 'Avulsa' : 'Nota'}}</td>
+          <td class="text-center">{{ item.numBoletim }}</td>
+          <td class="text-center">{{ item.numNota }}</td>
+          <td class="text-right">{{ item.numQtdEntregue | number }}</td>
+          <td class="text-right">{{ item.numnumQtdNota | number }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+          <td colspan="4">
+              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+          </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

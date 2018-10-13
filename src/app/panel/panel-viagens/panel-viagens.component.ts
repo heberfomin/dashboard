@@ -19,12 +19,14 @@ export class PanelViagensComponent implements OnInit {
   public dateTo: any;
   public viagens: Viagens[] = [];
 
-  constructor(private auth: AuthService, private panelService: PanelService, private datePickerModule: MdlDatePickerModule, private datePicker: MdlDatePickerService) { }
+  constructor(private auth: AuthService, 
+              private panelService: PanelService, 
+              private datePickerModule: MdlDatePickerModule, 
+              private datePicker: MdlDatePickerService) { }
 
   public getVeiculos() {
-    return(this.auth.getVeiculos().subscribe(resp => { 
+    return(this.auth.getVeiculos('2').subscribe(resp => { 
       this.veiculos  = this.panelService.parsecodPlaca(resp.veiculos);
-      console.log(this.veiculos);
       }
     ));
   }

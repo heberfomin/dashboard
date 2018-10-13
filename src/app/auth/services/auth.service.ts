@@ -6,19 +6,23 @@ import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
+
 import { User } from '../../interfaces/user.model';
 import { MovtoEstoque } from '../../interfaces/MovtoEstoque.model';
-import { map } from 'rxjs-compat/operator/map';
 import { Carregamentos } from '../../interfaces/Carregamentos.model';
 import { Viagens } from '../../interfaces/Viagens.model';
+import { Entregas } from 'src/app/interfaces/Entregas.model';
+import { Fluxo } from 'src/app/interfaces/Fluxo.model';
 
 @Injectable()
 export class AuthService {
   public movimento : MovtoEstoque[] = [];
   public carregamentos : Carregamentos[] = [];
   public viagens : Viagens[] = [];
+  public entregas : Entregas[] = [];
+  public fluxo : Fluxo[] = [];
   constructor(private http: HttpClient, private router: Router) { }
-
+  
   check(): boolean {
     return localStorage.getItem('user') ? true : false;
   }
@@ -83,9 +87,9 @@ export class AuthService {
     }
   } 
 
-  getVeiculos():any {
+  getVeiculos(funcao : string):any {
     if (this.getUser()) {
-      return this.http.get<any>(`${environment.api_url}/getVeiculos`);
+      return this.http.get<any>(`${environment.api_url}/getVeiculos/${funcao}`);
     }
   } 
 
@@ -141,6 +145,42 @@ export class AuthService {
       });
     }
     return this.viagens;
+  } 
+
+  postReqEntregas(codPlaca: any, dateFrom, dateTo): any {
+    var ArrayEntregas : Entregas;
+    this.entregas = [];
+    if (this.getUser()) {    
+      this.http.post<any>(`${environment.api_url}/getEntregas`,
+      JSON.stringify ({json:{ codPlaca: codPlaca, dateFrom: dateFrom, dateTo: dateTo }}),
+      { headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .subscribe(rest => { 
+        for(let i = 0; i<rest.data.length; i++) {
+          ArrayEntregas = new Entregas;
+          ArrayEntregas = rest.data[i];
+          this.entregas.push(ArrayEntregas);
+        }
+      });
+    }
+    return this.entregas;
+  } 
+  
+  postReqFluxo(dateFrom, dateTo): any {
+    var ArrayFluxo : Fluxo; 
+    this.fluxo = [];
+    if (this.getUser()) {    
+      this.http.post<any>(`${environment.api_url}/getFluxo`,
+      JSON.stringify ({json:{ dateFrom: dateFrom, dateTo: dateTo }}),
+      { headers: new HttpHeaders().set('Content-Type', 'application/json')})
+      .subscribe(rest => { 
+        for(let i = 0; i<rest.data.length; i++) {
+          ArrayFluxo = new Fluxo;
+          ArrayFluxo = rest.data[i];
+          this.fluxo.push(ArrayFluxo);
+        }
+      });
+    }
+    return this.fluxo;
   } 
 
 } 

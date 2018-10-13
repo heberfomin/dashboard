@@ -44,6 +44,10 @@
   </div>
   <div class="mdl-cell mdl-cell--2-col">
       <app-saldo-veiculos [saldosDet]="saldosDet" [produtos]="produtos" [saldosTotal]="saldosTotal"></app-saldo-veiculos>  
+
+      <button #Reload mdl-button mdl-button-type="mini-fab" mdl-ripple (click)="ngOnInit()" style="margin: 5px 5px 5px 5px;">
+        <mdl-icon>cached</mdl-icon>
+      </button>
   </div>
 </div>
 </mdl-card>

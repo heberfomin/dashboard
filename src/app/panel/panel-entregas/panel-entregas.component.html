@@ -12,7 +12,7 @@
                         clickOutsideToClose: false,
                         styles:{
                           'width':'25em',
-                          'height':'20em',
+                          'height':'25em',
                           'transform': 'translate(0, -65%)'},
                         isModal:true,
                         openFrom: editUserButton,
@@ -30,6 +30,12 @@
           
           <div class="mdl-dialog__content">
               <div class="mdl-grid">
+                <div class="mdl-cell--12-col">
+                  <mdl-select floating-label [(ngModel)]="codPlaca" placeholder="Placa" id="produto">
+                    <mdl-option value="todos"><em>Todos</em></mdl-option>
+                    <mdl-option *ngFor="let veiculo of veiculos" [value]="veiculo">{{ veiculo }}</mdl-option>
+                  </mdl-select>   
+                </div>
                 <div class="mdl-cell--6-col">
                   <span class="mdl--text-right">Início:</span>
                 </div> 
@@ -70,4 +76,4 @@
         </mdl-dialog>        
     </div>
   </div>
-  <app-datatable-fluxo [fluxo]="fluxo"></app-datatable-fluxo>
+  <app-datatable-entregas [entregas]="entregas"></app-datatable-entregas>

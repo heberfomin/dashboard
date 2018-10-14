@@ -18,8 +18,12 @@ export class DatatableComponent implements OnInit {
 
   getTransacao(codigo) {
     var result = '';
+    if (codigo == undefined || codigo == null) {
+      return '';
+    }
     if (codigo && codigo > 0) {
-      var result = this.ArrayTransacoes.find(item => item.codTransacao == codigo).desTransacao;
+      var result = this.ArrayTransacoes.find(item => item.codTransacao != undefined) ?
+                   this.ArrayTransacoes.find(item => item.codTransacao == codigo).desTransacao : '';
     }
     return  (result) ? result : codigo;  
   }

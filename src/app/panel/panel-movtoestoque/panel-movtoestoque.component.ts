@@ -48,7 +48,7 @@ export class PanelMovtoestoqueComponent implements OnInit {
   public getTransacoes() {
     return(this.auth.getTransacoes().subscribe(resp => { 
       this.ArrayTransacoes  = this.panelService.parseTransacoes(resp.transacoes);
-      console.log(this.ArrayTransacoes.find(item => item.codTransacao == 13).desTransacao);
+//      console.log(this.ArrayTransacoes.find(item => item.codTransacao == 13).desTransacao);
     }
     ));
   }

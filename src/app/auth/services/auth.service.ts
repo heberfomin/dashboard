@@ -101,6 +101,7 @@ export class AuthService {
       JSON.stringify ({json:{ codProduto: codProduto, dateFrom: dateFrom, dateTo: dateTo }}),
       { headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .subscribe(rest => { 
+        //console.log(rest);
         for(let i = 0; i<rest.data.length; i++) {
           movto = new MovtoEstoque;
           movto = rest.data[i];

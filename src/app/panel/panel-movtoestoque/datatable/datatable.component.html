@@ -17,7 +17,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let item of mf.data">
-        <td>{{ item.datMovto | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+        <td>{{ getDate(item.datMovto) | date:'dd/MM/yyyy hh:mm:ss'}}</td>
         <td>{{ item.codProduto | uppercase}}</td>
         <td>{{ item.codTipoMovto == 1 ? 'Ent' : 'Sai'}}</td>
         <td>{{ getTransacao(item.codTransacao) }}</td>

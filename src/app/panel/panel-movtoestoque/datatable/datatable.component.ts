@@ -27,5 +27,9 @@ export class DatatableComponent implements OnInit {
     }
     return  (result) ? result : codigo;  
   }
+  getDate(anydate) {
+    var newDate: any;
+    return newDate = new Date(anydate);
+  }
 
 }

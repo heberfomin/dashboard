@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of mf.data">
-        <td>{{ item.datTimeEvento | date:'dd/MM/yyyyThh:mm'}}</td>
+        <td>{{ panelService.getDateTime(item.datTimeEvento) | date:'dd/MM/yyyyThh:mm'}}</td>
         <td class="text-left">{{ getTipo(item.indTipoMovto) }}</td>
         <td class="text-left">{{ item.codMotoEntrada  }}</td>
         <td class="text-left">{{ item.codOpeEntrada  }}</td>

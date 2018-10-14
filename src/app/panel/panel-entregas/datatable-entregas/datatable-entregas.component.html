@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of mf.data">
-          <td>{{ item.datEntrega | date:'dd/MM/yyyy hh:mm'}}</td>
+          <td>{{ panelService.getDateTime(item.datEntrega) | date:'dd/MM/yyyy hh:mm'}}</td>
           <td>{{ item.codPlaca | uppercase}}</td>
           <td>{{ item.codMotorista }}</td>
           <td>{{ item.codProduto | uppercase}}</td>

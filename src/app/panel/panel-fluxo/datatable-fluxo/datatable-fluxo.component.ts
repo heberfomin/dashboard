@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PanelService } from '../../panel.service';
 
 @Component({
   selector: 'app-datatable-fluxo',
@@ -10,7 +11,7 @@ export class DatatableFluxoComponent implements OnInit {
   public imagem;
   tipos = ['Troca Caminhão','Troca Turno','Turno e Caminhão','Checkpoint','Fora da Base','Transbordo'];
 
-  constructor() { }
+  constructor(private panelService: PanelService) { }
 
   ngOnInit() {
   }

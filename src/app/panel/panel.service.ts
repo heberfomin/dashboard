@@ -101,4 +101,10 @@ export class PanelService {
     }
     return ArrayTransacoes;
   }
+
+  getDateTime(anydate) {
+    var newDate: any;
+    return newDate = new Date(anydate);
+  }
+
 }

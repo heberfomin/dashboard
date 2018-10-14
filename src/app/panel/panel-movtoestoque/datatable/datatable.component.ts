@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MovtoEstoque } from '../../../interfaces/MovtoEstoque.model';
 import { Transacoes } from '../../../interfaces/Transacoes.model';
+import { PanelService } from '../../panel.service';
 
 @Component({
   selector: 'app-datatable',
@@ -11,7 +12,7 @@ export class DatatableComponent implements OnInit {
   @Input() MovtoEstoque : MovtoEstoque[];
   @Input() ArrayTransacoes : Transacoes[];
 
-  constructor() { }
+  constructor(private panelService : PanelService) { }
 
   ngOnInit() {
   }
@@ -26,10 +27,6 @@ export class DatatableComponent implements OnInit {
                    this.ArrayTransacoes.find(item => item.codTransacao == codigo).desTransacao : '';
     }
     return  (result) ? result : codigo;  
-  }
-  getDate(anydate) {
-    var newDate: any;
-    return newDate = new Date(anydate);
   }
 
 }

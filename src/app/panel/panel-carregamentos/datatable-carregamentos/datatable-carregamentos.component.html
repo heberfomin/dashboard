@@ -20,7 +20,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let item of mf.data">
-          <td>{{ item.datCarregamento | date:'dd/MM/yyyy hh:mm'}}</td>
+          <td>{{ panelService.getDateTime(item.datCarregamento) | date:'dd/MM/yyyy hh:mm'}}</td>
           <td>{{ item.codProduto | uppercase}}</td>
           <td>{{ item.codOperador }}</td>
           <td class="text-center">{{ item.numTanqueSaida }}</td>

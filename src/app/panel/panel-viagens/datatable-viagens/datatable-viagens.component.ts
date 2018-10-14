@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PanelService } from '../../panel.service';
 
 @Component({
   selector: 'app-datatable-viagens',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DatatableViagensComponent implements OnInit {
   @Input() viagens;
 
-  constructor() { }
+  constructor(private panelService: PanelService) { }
 
   ngOnInit() {
   }

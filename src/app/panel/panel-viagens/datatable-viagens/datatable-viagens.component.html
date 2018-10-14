@@ -29,7 +29,7 @@
             <td class="text-center">{{ item.indMultiCombustivel == 1 ? 'Sim' : 'Não'}}</td>
             <td class="text-right">{{ item.numEncerranteIni | number  }}</td>
             <td class="text-right">{{ item.numlitrosSaida | number }}</td>
-            <td>{{ item.datRetorno | date:'dd/MM/yyyy hh:mm' }}</td>
+            <td>{{ item.datRetorno == null ? null : panelService.getDateTime(item.datRetorno) | date:'dd/MM/yyyy hh:mm'  }}</td>
             <td class="text-center">{{ item.numTanqueSaida }}</td>
             <td class="text-right">{{ item.numEncerranteFinal | number }}</td>
             <td class="text-right">{{ item.numTotDescarga | number }}</td>

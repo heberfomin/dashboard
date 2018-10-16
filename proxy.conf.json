@@ -1,66 +1,11 @@
 {
-    "/embarques/api/auth/login": {
-        "target": "https://ec2.gruposol.com.br",
+    "/gerencial/api/auth/login": {
+        "target": "https://web.gruposol.com.br",
         "secure": false,
         "changeOrigin": true
     },
-    "/embarques/api/auth/logout": {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getSaldoTanques": {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getSaldoVeiculos": {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getSaldoBase" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getProdutos" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getMovtoEstoque" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getTransacoes" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getCarregamentos" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getVeiculos" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getViagens" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getEntregas" : {
-        "target": "https://ec2.gruposol.com.br",
-        "secure": true,
-        "changeOrigin": true
-    },
-    "/embarques/api/getFluxo" : {
-        "target": "https://ec2.gruposol.com.br",
+    "/gerencial/api/auth/logout": {
+        "target": "https://web.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
     }

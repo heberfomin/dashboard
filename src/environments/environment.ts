@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   //api_url: '/embarques/api',
-  api_url: '/embarques/api',
-  api_get: 'https://ec2.gruposol.com.br/embarques/api',
-  title: 'Embarques'
+  api_url: '/gerencial/api',
+  api_get: 'https://web.gruposol.com.br/gerencial/api',
+  title: 'Gerencial'
 };
 
 /*

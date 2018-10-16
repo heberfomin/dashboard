@@ -13,11 +13,13 @@ import { RefreshTokenInterceptor } from './interceptors/refresh-token.intercepto
 import { ApplicationErrorHandle } from './app.error-handle.service';
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
+import { PanelComponent } from './panel/panel.component';
 registerLocaleData(ptBr)
 
 @NgModule({
   declarations: [
     AppComponent,
+    PanelComponent,
   ],
   imports: [
     BrowserModule,

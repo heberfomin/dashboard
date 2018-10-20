@@ -7,10 +7,22 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 
-import { User } from '../../interfaces/user.model';
+import { User } from '../../models/user.model';
+import { DaysCalculation } from 'src/app/models/daysCalculation.model';
+import { TodaysVolume } from 'src/app/models/todaysVolume.model';
+import { MonthVolume } from 'src/app/models/monthVolume.model';
+
+
 
 @Injectable()
 export class AuthService {
+  public diasCalculo  : DaysCalculation;
+  public volumeHoje   : TodaysVolume[] = [];
+  public volumeMensal : MonthVolume[] = [];
+  public totalDia : number = 0;
+  public totalMes : number = 0;
+  public contasMae = [];
+
   constructor(private http: HttpClient, private router: Router) { }
   
   check(): boolean {
@@ -45,5 +57,43 @@ export class AuthService {
       }
       return false;
     })
+  }
+  getVolumes(): any {
+    if (this.getUser()) {   
+      this.diasCalculo = new DaysCalculation; 
+      this.http.post<any>(`${environment.api_url}/getVolumes`,
+      '')
+      .subscribe(rest => { 
+        this.diasCalculo = rest.resultado;
+        for (let i = 0; i<rest.todaysVolume.length;i++) {
+          var volume : TodaysVolume;
+          volume = rest.todaysVolume[i];
+          this.volumeHoje.push(volume);
+          this.totalDia = this.totalDia + parseFloat(rest.todaysVolume[i].quantidade);
+        }
+        for (let i = 0; i<rest.monthVolume.length;i++) {
+          var volume : MonthVolume;
+          volume = rest.monthVolume[i];
+          this.volumeMensal.push(volume);
+          this.totalMes = this.totalMes + parseFloat(rest.monthVolume[i].quantidade);
+        }
+      })
+    }
+  } 
+
+  getContasMae() {
+    if (this.getUser()) {   
+      this.http.post<any>(`${environment.api_url}/getContasMae`,
+      '')
+      .subscribe(
+        (rest) => { 
+          for ( let i = 0;i<rest.contasMae.length;i++) {
+            this.contasMae.push(rest.contasMae[i]);
+          }
+        },
+        (error) => { console.log(error); }, 
+        () => { console.log(this.contasMae,this.contasMae.length,this.contasMae[0].codProduto);
+                return this.contasMae; });
+    }
   }
 } 

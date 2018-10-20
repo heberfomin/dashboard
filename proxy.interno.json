@@ -1,21 +1,21 @@
 {
     "/gerencial/api/auth/login": {
-        "target": "https://web.gruposol.com.br",
+        "target": "https://intranet.gruposol.com.br",
         "secure": false,
         "changeOrigin": true
     },
     "/gerencial/api/auth/logout": {
-        "target": "https://web.gruposol.com.br",
+        "target": "https://intranet.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
     },
     "/gerencial/api/getVolumes": {
-        "target": "https://web.gruposol.com.br",
+        "target": "https://intranet.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
     },
     "/gerencial/api/getContasMae": {
-        "target": "https://web.gruposol.com.br",
+        "target": "https://intranet.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
     }

@@ -1,3 +1,33 @@
-<p>
-  panel works!
-</p>
+<mdl-layout #mdlLayout1="mdlLayout">
+  <mdl-layout-header>
+      <mdl-layout-header-row>
+          <mdl-layout-title>{{titulo}}</mdl-layout-title>
+          <mdl-layout-spacer></mdl-layout-spacer>
+          <span>{{auth.getUser().name}}</span>
+          <nav class="mdl-navigation">
+          </nav>
+          <button mdl-button #btn2="mdlButton" (click)="m2.toggle($event, btn2)" mdl-button-type="icon" mdl-ripple><mdl-icon>more_vert</mdl-icon></button>
+          <mdl-menu #m2="mdlMenu" mdl-menu-position="bottom-right">
+              <a class="mdl-badge" (click)="logout($event)">
+                  <span class="mdl-list__item"><i class="material-icons">exit_to_app</i>Logout</span></a>
+          </mdl-menu> 
+              </mdl-layout-header-row>
+  </mdl-layout-header>
+  <mdl-layout-drawer>
+      <mdl-layout-title>{{titulo}}</mdl-layout-title>
+      <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" [routerLink]="['./Aeroporto']" (click)="mdlLayout1.closeDrawer()">Aeroporto</a>
+          <a class="mdl-navigation__link" [routerLink]="['./Contabilidade']" (click)="mdlLayout1.closeDrawer()">Contabilidade</a>
+          <a class="mdl-navigation__link" [routerLink]="['./main']" (click)="mdlLayout1.closeDrawer()">Dashboard</a>
+          <a class="mdl-navigation__link" [routerLink]="['./Financeiro']" (click)="mdlLayout1.closeDrawer()">Financeiro</a>
+          <a class="mdl-navigation__link" [routerLink]="['./Operacional']" (click)="mdlLayout1.closeDrawer()">Operacional</a>
+          <a class="mdl-navigation__link" [routerLink]="['./Vendas']" (click)="mdlLayout1.closeDrawer()">Vendas</a>
+          <a><hr></a>
+          <a class="mdl-badge" (click)="logout($event)">
+              <span class="mdl-list__item"><i class="material-icons">exit_to_app</i>Logout</span></a>
+      </nav>
+  </mdl-layout-drawer>   
+  <mdl-layout-content>
+      <router-outlet></router-outlet>
+  </mdl-layout-content>
+</mdl-layout>

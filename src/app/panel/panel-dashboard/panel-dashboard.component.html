@@ -1,0 +1,8 @@
+<dialog-outlet></dialog-outlet>
+<app-panel-dashboard-volumes [diasCalculo]="service.diasCalculo"
+  [volumeHoje]="service.volumeHoje"
+  [volumeMensal]="service.volumeMensal"
+  [totalDia]="service.totalDia"
+  [totalMes]="service.totalMes">
+</app-panel-dashboard-volumes>
+<app-panel-dashboard-contas-mae [contasMae]="service.contasMae"></app-panel-dashboard-contas-mae>

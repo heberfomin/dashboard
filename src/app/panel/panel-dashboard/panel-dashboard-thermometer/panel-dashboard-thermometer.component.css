@@ -1,0 +1,32 @@
+svg {
+    padding: 2% 2% 2% 2%;
+}
+.green {
+    stroke-opacity: 0; 
+    stroke: rgb(220, 213, 22); 
+    fill: rgb(19, 166, 14);
+}
+
+.yellow {
+    stroke-opacity: 0; 
+    stroke: rgb(220, 213, 22); 
+    fill: rgba(220, 213, 22, 0.53);
+}
+
+.red {
+    stroke-opacity: 0; 
+    stroke: rgb(220, 213, 22); 
+    fill: rgb(217, 0, 7);
+}
+
+.bulb-green {
+    fill: rgb(19, 166, 14);
+}
+
+.bulb-yellow {
+    fill: rgba(220, 213, 22, 0.53);
+}
+
+.bulb-red {
+    fill: rgb(217, 0, 7);
+}

@@ -1,0 +1,32 @@
+<div class="mdl-grid">
+  <mdl-card class="demo-card-image" mdl-shadow="0" class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-card__title mdl-card__title-text">Volume Acumulado Hoje</div>
+    <div *ngFor="let item of volumeHoje, let i = index" class="mdl-cell mdl-cell--6-col">
+      <div>
+        <app-panel-dashboard-thermometer [height]="getHeight(item.quantidade)" [value]="item.quantidade"></app-panel-dashboard-thermometer>
+        <span class="mdl-text--center">{{ item.item }}</span>
+      </div>
+    </div>
+    <div class="linha_total">{{ totalDia  | number:'1.0-1'}} litros</div>
+  </mdl-card>
+  <mdl-card class="demo-card-image" mdl-shadow="0" class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-card__title mdl-card__title-text">Volume Acumulado do Mês</div>
+    <div *ngFor="let item of volumeMensal" class="mdl-cell mdl-cell--6-col">
+      <div>
+        <app-panel-dashboard-thermometer [height]="getHeight1000(item.quantidade)" [value]="item.quantidade"></app-panel-dashboard-thermometer>
+        <span class="mdl-text--center">{{ item.item }}</span>
+      </div>
+    </div>
+    <div class="linha_total">{{ totalMes | number:'1.0-1' }} litros</div>
+  </mdl-card>
+  <mdl-card class="demo-card-image" mdl-shadow="0" class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-card__title mdl-card__title-text">Projeção para Final do Mês</div>
+    <div *ngFor="let item of volumeMensal" class="mdl-cell mdl-cell--6-col">
+      <div>
+        <app-panel-dashboard-thermometer [height]="getHeight1000(getForecast(item.quantidade))" [value]="getForecast(item.quantidade)"></app-panel-dashboard-thermometer>
+        <span class="mdl-text--center">{{ item.item }}</span>
+      </div>
+    </div>
+    <div class="linha_total">{{ getForecast(totalMes) | number:'1.0-1' }} litros</div>
+  </mdl-card>
+</div>

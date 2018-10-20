@@ -1,0 +1,20 @@
+app-panel-dashboard-thermometer {
+    padding: 5% 5% 5% 5%;
+}
+
+.mdl-text--center {
+    text-align: center;
+    padding-right: 25%;
+    display: block;
+    width: auto;
+}
+
+.linha_total {
+    margin-top: 5%;
+    padding-top: 3%;
+    font-size: 10pt;
+    text-align: center;
+    display: block;
+    width: auto;
+    margin: auto;
+}

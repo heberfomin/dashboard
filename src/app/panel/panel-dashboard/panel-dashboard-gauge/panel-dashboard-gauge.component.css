@@ -1,0 +1,21 @@
+.gauge_text {
+    font-size: 16pt;
+}
+
+.green {
+    stroke-opacity: 0; 
+    stroke: rgb(54, 54, 47); 
+    fill: rgb(19, 166, 14);
+}
+
+.yellow {
+    stroke-opacity: 0; 
+    stroke:  rgb(54, 54, 47);  
+    fill: rgba(220, 213, 22, 0.53);
+}
+
+.red {
+    stroke-opacity: 0; 
+    stroke:  rgb(54, 54, 47); 
+    fill: rgb(217, 0, 7);
+}

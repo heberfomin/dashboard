@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
+import { Response } from '@angular/http'
 import { Router } from '@angular/router';
 
 import { User } from '../../models/user.model';
 import { DaysCalculation } from 'src/app/models/daysCalculation.model';
 import { TodaysVolume } from 'src/app/models/todaysVolume.model';
 import { MonthVolume } from 'src/app/models/monthVolume.model';
+import { IContasMae } from 'src/app/interfaces/icontas-mae';
 
 
 
@@ -21,8 +23,7 @@ export class AuthService {
   public volumeMensal : MonthVolume[] = [];
   public totalDia : number = 0;
   public totalMes : number = 0;
-  public contasMae = [];
-
+ 
   constructor(private http: HttpClient, private router: Router) { }
   
   check(): boolean {
@@ -81,19 +82,9 @@ export class AuthService {
     }
   } 
 
-  getContasMae() {
+  getContasMae() : Observable<IContasMae[]> {
     if (this.getUser()) {   
-      this.http.post<any>(`${environment.api_url}/getContasMae`,
-      '')
-      .subscribe(
-        (rest) => { 
-          for ( let i = 0;i<rest.contasMae.length;i++) {
-            this.contasMae.push(rest.contasMae[i]);
-          }
-        },
-        (error) => { console.log(error); }, 
-        () => { console.log(this.contasMae,this.contasMae.length,this.contasMae[0].codProduto);
-                return this.contasMae; });
+      return this.http.post<IContasMae[]>(`${environment.api_url}/getContasMae`,''); 
     }
   }
 } 

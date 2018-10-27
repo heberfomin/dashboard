@@ -12,6 +12,10 @@ import { PanelComponent } from './panel.component';
 import { PanelDashboardVolumesComponent } from './panel-dashboard/panel-dashboard-volumes/panel-dashboard-volumes.component';
 import { PanelDashboardThermometerComponent } from './panel-dashboard/panel-dashboard-thermometer/panel-dashboard-thermometer.component';
 import { PanelDashboardContasMaeComponent } from './panel-dashboard/panel-dashboard-contas-mae/panel-dashboard-contas-mae.component';
+import { OrderbynumQuantidadeDescPipe } from '../pipes/orderbynumQuantidadeDesc.pipe';
+import { PanelDashboardGaugeComponent } from './panel-dashboard/panel-dashboard-gauge/panel-dashboard-gauge.component';
+import { ChartModule } from 'angular2-chartjs';
+import 'chartjs-plugin-zoom';
 
 @NgModule({
   imports: [
@@ -24,13 +28,16 @@ import { PanelDashboardContasMaeComponent } from './panel-dashboard/panel-dashbo
     MdlSelectModule,
     MdlDatePickerModule,
     DataTableModule,
+    ChartModule,
   ],
   declarations: [
     PanelComponent,
     PanelDashboardComponent,
     PanelDashboardVolumesComponent,
     PanelDashboardThermometerComponent,
-    PanelDashboardContasMaeComponent
+    PanelDashboardContasMaeComponent,
+    OrderbynumQuantidadeDescPipe,
+    PanelDashboardGaugeComponent
   ],
   providers:[
     MdlDialogService,
@@ -38,7 +45,10 @@ import { PanelDashboardContasMaeComponent } from './panel-dashboard/panel-dashbo
   exports: [
     PanelComponent,
     PanelDashboardThermometerComponent,
-    PanelDashboardContasMaeComponent
+    PanelDashboardContasMaeComponent,
+    PanelDashboardGaugeComponent,
+    OrderbynumQuantidadeDescPipe,
+    ChartModule,
   ]
 })
 export class PanelModule { }

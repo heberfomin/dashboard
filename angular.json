@@ -32,7 +32,9 @@
               "node_modules/@angular-mdl/popover/popover.css",
               "node_modules/@angular-mdl/datepicker/datepicker.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           },
           "configurations": {
             "production": {

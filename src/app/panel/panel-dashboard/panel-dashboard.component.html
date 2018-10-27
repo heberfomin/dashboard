@@ -5,4 +5,9 @@
   [totalDia]="service.totalDia"
   [totalMes]="service.totalMes">
 </app-panel-dashboard-volumes>
-<app-panel-dashboard-contas-mae [contasMae]="service.contasMae"></app-panel-dashboard-contas-mae>
+<app-panel-dashboard-contas-mae 
+  [contasMae]="contasMae" 
+  [volumeMensal]="service.volumeMensal"
+  [totais]="totais"
+></app-panel-dashboard-contas-mae>
+

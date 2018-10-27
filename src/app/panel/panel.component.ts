@@ -14,8 +14,7 @@ export class PanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.getVolumes();
-    this.auth.getContasMae();            
+
   }
 
   logout(e) {

@@ -15,13 +15,11 @@ import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 import { PanelModule } from './panel/panel.module';
 import { PanelRoutingModule } from './panel/panel.routing';
-import { OrderbyPipe } from './pipes/orderby.pipe';
 registerLocaleData(ptBr)
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderbyPipe,
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,6 @@ export class PanelDashboardVolumesComponent implements OnInit {
   }
 
   ngOnInit() {
-    
   }
 
   getHeight(value) {

@@ -1,10 +1,20 @@
-<div>
-  <table>
-    <tbody *ngFor="let item of ContasMae">
-      <tr>
-        <td>{{item.desContaMae}}</td>
-        <td>{{item.numQuantidade}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="mdl-grid mdl-grid--no-spacing">
+  <mdl-card *ngFor="let item of volumeMensal" class="demo-card-image mdl-cell" mdl-shadow="0">
+    <div class="mdl-card__title mdl-card__title-text" style="align-self: flex-start;">{{ item.item }}</div>
+    <table >
+        <tbody *ngFor="let conta of contasMae | numQuantidadeDesc ">
+          <tr *ngIf="conta.codProduto == item.item">
+            <td style="width: 33%;">{{ conta.desContaMae | uppercase }}</td>
+            <td style="width: 67%;"><app-panel-dashboard-gauge 
+              [valor]="conta.numQuantidade"
+              [total]="item.quantidade"
+              [width]="getWidth(conta.numQuantidade)">
+            </app-panel-dashboard-gauge></td>
+          </tr>
+        </tbody>
+      </table>
+  </mdl-card>
+  <mdl-card class="demo-card-image mdl-cell" mdl-shadow="0" #elementToCheck >
+    <chart [type]="type" [data]="data" [options]="options"></chart>
+  </mdl-card>
 </div>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 600 44" xmlns="http://www.w3.org/2000/svg">
-  <rect x="8.186" y="8.839" width="500" height="26.416" style="fill: rgb(217, 27, 24);"/>
+<svg width="100%" viewBox="0 0 600 44" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8.186" y="8.839" [attr.width]="width" height="26.416" [attr.class]="color"/>
   <g>
     <rect x="5" y="5" width="506.963" height="33.955" style="fill: rgba(255, 255, 255, 0); stroke: rgba(0, 0, 0, 0.36);"/>
     <line x1="18.183" y1="5.505" x2="18.183" y2="38.549" style="stroke: rgba(0, 0, 0, 0.4);"/>
@@ -53,5 +52,5 @@
     <line x1="488.283" y1="5.457" x2="488.283" y2="38.501" style="stroke: rgba(0, 0, 0, 0.4);"/>
     <line x1="498.294" y1="5.494" x2="498.294" y2="38.538" style="stroke: rgba(0, 0, 0, 0.4);"/>
   </g>
-  <text id="gauge" style="fill: rgb(51, 51, 51); font-size: 16px; white-space: pre;" x="521.605" y="28.3">500.000</text>
+  <text id="texto" style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="521.605" y="28.3" class="gauge_text">{{ valor | number: '1.0-1' }}</text>
 </svg>

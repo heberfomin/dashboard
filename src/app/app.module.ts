@@ -11,10 +11,12 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { InterceptorModule } from './interceptors/interceptor.module';
 import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
 import { ApplicationErrorHandle } from './app.error-handle.service';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CommonModule } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 import { PanelModule } from './panel/panel.module';
 import { PanelRoutingModule } from './panel/panel.routing';
+import { GetDataService } from './services/get-data.service';
+import { CommomService } from './services/commom.service';
 registerLocaleData(ptBr)
 
 @NgModule({
@@ -23,6 +25,7 @@ registerLocaleData(ptBr)
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     LoginModule,
     AuthModule,
     routing,
@@ -36,6 +39,8 @@ registerLocaleData(ptBr)
   ],
   providers: [ 
     AuthGuard, 
+    GetDataService,
+    CommomService,
     {provide: LOCALE_ID, useValue: 'pt-BR' },
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     {provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },

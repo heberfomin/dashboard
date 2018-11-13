@@ -1,5 +1,7 @@
 app-panel-dashboard-thermometer {
-    padding: 5% 5% 5% 5%;
+    padding: 6% 5% 6% 5%;
+    margin: 2% 2% 2% 2%;
+    height: 90%;
 }
 
 .mdl-text--center {

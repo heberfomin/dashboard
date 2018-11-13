@@ -4,8 +4,8 @@
     <table >
         <tbody *ngFor="let conta of contasMae | numQuantidadeDesc ">
           <tr *ngIf="conta.codProduto == item.item">
-            <td style="width: 33%;">{{ conta.desContaMae | uppercase }}</td>
-            <td style="width: 67%;"><app-panel-dashboard-gauge 
+            <td style="width: 35%;">{{ conta.desContaMae | uppercase }}</td>
+            <td style="width: 65%;"><app-panel-dashboard-gauge 
               [valor]="conta.numQuantidade"
               [total]="item.quantidade"
               [width]="getWidth(conta.numQuantidade)">
@@ -14,7 +14,7 @@
         </tbody>
       </table>
   </mdl-card>
-  <mdl-card class="demo-card-image mdl-cell" mdl-shadow="0" #elementToCheck >
-    <chart [type]="type" [data]="data" [options]="options"></chart>
+  <mdl-card class="demo-card-image mdl-cell" mdl-shadow="0" >
+    <canvas id="Faturamento"></canvas>
   </mdl-card>
 </div>

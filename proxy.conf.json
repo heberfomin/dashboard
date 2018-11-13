@@ -18,5 +18,15 @@
         "target": "https://web.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
+    },
+    "/gerencial/api/getPeriodosMoveis": {
+        "target": "https://web.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
+    },
+    "/gerencial/api/getCompras": {
+        "target": "https://web.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
     }
 }

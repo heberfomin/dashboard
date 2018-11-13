@@ -1,4 +1,9 @@
 import { Component, OnInit, Input,ViewChild } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
+import { IContasMae } from 'src/app/interfaces/icontas-mae';
+import { ITotais } from 'src/app/interfaces/iTotais';
+import { totais } from 'src/app/models/totais.model';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-panel-dashboard-contas-mae',
@@ -6,56 +11,20 @@ import { Component, OnInit, Input,ViewChild } from '@angular/core';
   styleUrls: ['./panel-dashboard-contas-mae.component.css']
 })
 export class PanelDashboardContasMaeComponent implements OnInit {
-@Input() contasMae;
 @Input() volumeMensal;
-@Input() totais;
 
-//labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-//data: [65, 59, 80, 81, 56, 55, 40],
+public contasMae: IContasMae[];
+public totais: ITotais[];
+public labels: string[] = [];
+public valores: string[] = [];
 
-type = 'bar';
-  data = {
-    labels: this.totais,
-    datasets: [
-      {
-        label: 'My First dataset',
-        data: this.totais,
-        backgroundColor: '#FF6384'
-      },
-    ]
-  };
-  options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      xAxes: [
-        {
-          stacked: true
-        }
-      ],
-      yAxes: [
-        {
-          stacked: true
-        }
-      ]
-    },
+Faturamento = [];
 
-    // Container for zoom options
-    zoom: {
-      // Boolean to enable zooming
-      enabled: true,
-
-      // Zooming directions. Remove the appropriate direction to disable 
-      // Eg. 'y' would only allow zooming in the y direction
-      mode: 'xy',
-    }
-  };
-
-  constructor() {
+  constructor( private service : AuthService ) {
    }
 
   ngOnInit() {
-    
+    this.service.getContasMae().subscribe(contasMae => { this.takeInstance(contasMae) });
   }
 
   getWidth(value) {
@@ -64,7 +33,52 @@ type = 'bar';
     return valor > 500 ? 500 : valor;
   }
 
-  getTotais() {
-    console.log(this.totais);
+  takeInstance(result) {
+    this.contasMae = result.contasMae;
+    this.totais = new Array<ITotais>(); 
+    var index = -1;
+    this.contasMae.forEach(data => { 
+      if (this.totais[0] != undefined) {
+        for (let i=0;i<this.totais.length;i++) {
+          index = this.totais[i].codProduto === data.codProduto ? i : -1;
+        }
+      }  
+      if (index === -1) {
+        const total = new totais(data.codProduto,data.numValVenda);
+        this.totais.push(total);
+      } else {
+        var valor1: string = this.totais[index].numValVenda.toString();
+        var valor2: string = data.numValVenda.toString();
+        this.totais[index].numValVenda = parseFloat(valor1) + parseFloat(valor2);
+      }
+    });
+    this.totais.forEach(data => {
+      this.labels.push(data.codProduto);
+      this.valores.push(data.numValVenda.toString());
+    });
+
+    this.Faturamento = new Chart('Faturamento',{
+      type: 'bar',
+      data: {
+          labels: this.labels,
+          datasets: [{
+              label: 'Faturamento',
+              data: this.valores,
+              backgroundColor: 'rgba(25, 66, 216, 0.44)',
+              borderColor: 'rgba(103, 85, 218, 0.498)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+        responsive: true,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+    });
   }
 }

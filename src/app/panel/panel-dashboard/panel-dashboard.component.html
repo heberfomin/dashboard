@@ -6,8 +6,13 @@
   [totalMes]="service.totalMes">
 </app-panel-dashboard-volumes>
 <app-panel-dashboard-contas-mae 
-  [contasMae]="contasMae" 
   [volumeMensal]="service.volumeMensal"
-  [totais]="totais"
 ></app-panel-dashboard-contas-mae>
-
+<div class="mdl-grid mdl-grid--no-spacing">
+  <div class="mdl-cell mdl-cell--8-col">
+    <app-panel-dashboard-periodos-moveis></app-panel-dashboard-periodos-moveis>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col">
+    <app-panel-dashboard-compras></app-panel-dashboard-compras>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { MdlSelectModule } from '@angular-mdl/select';
 import { MdlDatePickerModule } from '@angular-mdl/datepicker';
 import { DataTableModule } from "angular-6-datatable";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { PanelRoutingModule } from './panel.routing';
 import { PanelComponent } from './panel.component';
@@ -14,12 +15,13 @@ import { PanelDashboardThermometerComponent } from './panel-dashboard/panel-dash
 import { PanelDashboardContasMaeComponent } from './panel-dashboard/panel-dashboard-contas-mae/panel-dashboard-contas-mae.component';
 import { OrderbynumQuantidadeDescPipe } from '../pipes/orderbynumQuantidadeDesc.pipe';
 import { PanelDashboardGaugeComponent } from './panel-dashboard/panel-dashboard-gauge/panel-dashboard-gauge.component';
-import { ChartModule } from 'angular2-chartjs';
-import 'chartjs-plugin-zoom';
+import { PanelDashboardPeriodosMoveisComponent } from './panel-dashboard/panel-dashboard-periodos-moveis/panel-dashboard-periodos-moveis.component';
+import { PanelDashboardComprasComponent } from './panel-dashboard/panel-dashboard-compras/panel-dashboard-compras.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     PanelRoutingModule,
@@ -28,7 +30,6 @@ import 'chartjs-plugin-zoom';
     MdlSelectModule,
     MdlDatePickerModule,
     DataTableModule,
-    ChartModule,
   ],
   declarations: [
     PanelComponent,
@@ -37,7 +38,9 @@ import 'chartjs-plugin-zoom';
     PanelDashboardThermometerComponent,
     PanelDashboardContasMaeComponent,
     OrderbynumQuantidadeDescPipe,
-    PanelDashboardGaugeComponent
+    PanelDashboardGaugeComponent,
+    PanelDashboardPeriodosMoveisComponent,
+    PanelDashboardComprasComponent
   ],
   providers:[
     MdlDialogService,
@@ -48,7 +51,6 @@ import 'chartjs-plugin-zoom';
     PanelDashboardContasMaeComponent,
     PanelDashboardGaugeComponent,
     OrderbynumQuantidadeDescPipe,
-    ChartModule,
   ]
 })
 export class PanelModule { }

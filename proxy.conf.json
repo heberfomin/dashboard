@@ -28,5 +28,10 @@
         "target": "https://web.gruposol.com.br",
         "secure": true,
         "changeOrigin": true
+    },
+    "/gerencial/api/getEstoque": {
+        "target": "https://web.gruposol.com.br",
+        "secure": true,
+        "changeOrigin": true
     }
 }

@@ -17,6 +17,8 @@ import { OrderbynumQuantidadeDescPipe } from '../pipes/orderbynumQuantidadeDesc.
 import { PanelDashboardGaugeComponent } from './panel-dashboard/panel-dashboard-gauge/panel-dashboard-gauge.component';
 import { PanelDashboardPeriodosMoveisComponent } from './panel-dashboard/panel-dashboard-periodos-moveis/panel-dashboard-periodos-moveis.component';
 import { PanelDashboardComprasComponent } from './panel-dashboard/panel-dashboard-compras/panel-dashboard-compras.component';
+import { PanelDashboardEstoqueComponent } from './panel-dashboard/panel-dashboard-estoque/panel-dashboard-estoque.component';
+import { CallbackPipe } from '../pipes/calback.pipe';
 
 @NgModule({
   imports: [
@@ -38,9 +40,11 @@ import { PanelDashboardComprasComponent } from './panel-dashboard/panel-dashboar
     PanelDashboardThermometerComponent,
     PanelDashboardContasMaeComponent,
     OrderbynumQuantidadeDescPipe,
+    CallbackPipe,
     PanelDashboardGaugeComponent,
     PanelDashboardPeriodosMoveisComponent,
-    PanelDashboardComprasComponent
+    PanelDashboardComprasComponent,
+    PanelDashboardEstoqueComponent
   ],
   providers:[
     MdlDialogService,

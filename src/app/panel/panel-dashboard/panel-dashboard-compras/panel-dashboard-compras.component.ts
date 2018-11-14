@@ -24,7 +24,6 @@ export class PanelDashboardComprasComponent implements OnInit, AfterViewInit {
   }
 
   takeInstance(data) {
-    console.log(data);
     var linha:ICompras;
     for (let i = 0; i<data.compras.length;i++) {
       if (this.Produtos.find(x => x === data.compras[i].codProduto) == undefined) {

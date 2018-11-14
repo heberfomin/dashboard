@@ -1,0 +1,23 @@
+<div class="mdl-grid mdl-grid--no-spacing">
+  <mdl-card class="demo-card-image mdl-cell mdl-cell--6-col" mdl-shadow="0" *ngFor="let item of Produtos">
+      <h5> {{ item.codProduto }} </h5>
+      <table>
+        <thead>
+          <tr>
+            <th>INDICADOR</th>
+            <th *ngFor="let mes of Periodos">{{ mes }}</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let reg of dataEstoque; let i = index;">
+          <tr *ngIf="reg.codProduto == item.codProduto">
+            <td class="alfa" [ngClass]="getShift('titulo',reg.numSequencia)">
+                {{ reg.desTitulo }}
+            </td>
+            <td class="num" [ngClass]="getShift('valor',reg.numSequencia)">{{ reg.numQuantidade[0] | number:'1.1' }}</td>
+            <td class="num" [ngClass]="getShift('valor',reg.numSequencia)">{{ reg.numQuantidade[1] | number:'1.1' }}</td>
+            <td class="num" [ngClass]="getShift('valor',reg.numSequencia)">{{ reg.numQuantidade[2] | number:'1.1' }}</td>
+          </tr>
+        </tbody>
+      </table>
+  </mdl-card>
+</div>

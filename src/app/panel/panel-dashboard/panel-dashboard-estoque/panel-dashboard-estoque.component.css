@@ -1,0 +1,56 @@
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 5%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    font-size: 10pt;
+ }
+
+th {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.829);
+    background-color: rgba(126, 126, 235, 0.5)
+}
+
+ h5 {
+     text-align: center
+ }
+.alfa {
+    text-align: left;
+}
+.num {
+    text-align: right;
+}
+.no-shift {
+    margin-left: 0%;
+    background-color: rgba(153, 147, 147, 0.562);
+    color: black;
+}
+.saldos {
+    color: back;
+    background-color: rgba(153, 147, 147, 0.562);
+}
+.shift-2 {
+    padding-left: 2%;
+    background-color: rgba(197, 192, 192, 0.562);
+    color: blue;
+}
+.subtotal {
+    background-color: rgba(197, 192, 192, 0.562);
+    color: blue;
+}
+.shift-4 {
+    padding-left: 4%;
+    background-color: rgba(252, 253, 209, 0.842);
+    color: darkblue;
+}
+.valor {
+    color: darkblue;
+    background-color: rgba(252, 253, 209, 0.842);
+}

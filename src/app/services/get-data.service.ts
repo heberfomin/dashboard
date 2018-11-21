@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from '../auth/services/auth.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/services/auth.service';
 import { ICompras } from '../interfaces/iCompras';
 import { IEstoque } from '../interfaces/IEstoque';
 import { Produtos } from '../models/Produtos.model';
@@ -46,9 +46,4 @@ export class GetDataService {
       this.Periodos = meses.desMesAno;
     });
   }
-
-
-
-
-
 }

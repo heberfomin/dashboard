@@ -21,6 +21,7 @@ export class PanelDashboardComponent implements OnInit {
   ngOnInit() {
     this.service.getVolumes();
     this.getData.getDataEstoque();
+    this.getData.getDataCR();
   }
 
 }

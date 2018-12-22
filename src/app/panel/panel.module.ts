@@ -19,6 +19,7 @@ import { PanelDashboardPeriodosMoveisComponent } from './panel-dashboard/panel-d
 import { PanelDashboardComprasComponent } from './panel-dashboard/panel-dashboard-compras/panel-dashboard-compras.component';
 import { PanelDashboardEstoqueComponent } from './panel-dashboard/panel-dashboard-estoque/panel-dashboard-estoque.component';
 import { CallbackPipe } from '../pipes/calback.pipe';
+import { PanelDashboardCrReceberComponent } from './panel-dashboard/panel-dashboard-cr-receber/panel-dashboard-cr-receber.component';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { CallbackPipe } from '../pipes/calback.pipe';
     PanelDashboardGaugeComponent,
     PanelDashboardPeriodosMoveisComponent,
     PanelDashboardComprasComponent,
-    PanelDashboardEstoqueComponent
+    PanelDashboardEstoqueComponent,
+    PanelDashboardCrReceberComponent
   ],
   providers:[
     MdlDialogService,

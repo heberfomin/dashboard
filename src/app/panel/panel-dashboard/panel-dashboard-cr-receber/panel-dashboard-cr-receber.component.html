@@ -1,0 +1,48 @@
+<div>
+  <h5>CONTAS A RECEBER - SOL DIESEL</h5>
+  <div class="mdl-grid mdl-grid--no-spacing">
+    <mdl-card class="demo-card-image mdl-cell mdl-cell--6-col" mdl-shadow="0" *ngFor="let item of crProdutos">
+      <h5>{{item.codProduto}}</h5>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>De litros</th>
+              <th>Até litros</th>
+              <th>Hoje</th>
+              <th>Até 5 dias</th>
+              <th>em 10 dias</th>
+              <th>em 20 dias</th>
+              <th>em 30 dias</th>
+              <th>+ 30 dias</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let reg of CRaVencer001">
+            <tr *ngIf="reg.codProduto == item.codProduto">
+              <td class="numero">{{ reg.numFaixaInicial }}</td>
+              <td class="numero">{{ reg.numFaixaFinal }}</td>
+              <td class="numero">{{ reg.numValorHoje|number:".2" }}</td>
+              <td class="numero">{{ reg.numValor5dias|number:".2" }}</td>
+              <td class="numero">{{ reg.numValor10dias|number:".2" }}</td>
+              <td class="numero">{{ reg.numValor20dias|number:".2" }}</td>
+              <td class="numero">{{ reg.numValor30dias|number:".2" }}</td>
+              <td class="numero">{{ reg.numValorMais30|number:".2" }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td>Total</td>
+              <td class="numero">{{ sum(1,item.codProduto)| number:".2" }}</td>
+              <td class="numero">{{ sum(2,item.codProduto)| number:".2" }}</td>
+              <td class="numero">{{ sum(3,item.codProduto)| number:".2" }}</td>
+              <td class="numero">{{ sum(4,item.codProduto)| number:".2" }}</td>
+              <td class="numero">{{ sum(5,item.codProduto)| number:".2" }}</td>
+              <td class="numero">{{ sum(6,item.codProduto)| number:".2" }}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </mdl-card>
+  </div>
+</div>
